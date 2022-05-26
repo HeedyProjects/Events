@@ -4,12 +4,17 @@ type CustomTextProps = {
   style?: TextStyle | TextStyle[];
   numberOfLines?: 2;
   textType?:
-    | 'regular'
-    | 'bold'
-    | 'light'
-    | 'extraBold'
-    | 'NoahBold'
-    | 'NoahRegular';
+    | 'SFProDisplayBlack'
+    | 'SFProDisplayBold'
+    | 'SFProDisplayHeavy'
+    | 'SFProDisplayLight'
+    | 'SFProDisplayMedium'
+    | 'SFProDisplayRegular'
+    | 'SFProDisplaySemibold'
+    | 'SFProDisplayThin'
+    | 'SFProDisplayUltralight'
+    | 'SFProTextbold'
+    | 'SFProTextRegular';
 };
 const CustomText: FunctionComponent<CustomTextProps> = ({
   children,
@@ -19,27 +24,39 @@ const CustomText: FunctionComponent<CustomTextProps> = ({
 }) => {
   let textStyle: {};
   switch (textType) {
-    case 'regular':
-      textStyle = styles.regular;
+    case 'SFProDisplayBlack':
+      textStyle = styles.SFProDisplayBlack;
       break;
-    case 'NoahBold':
-      textStyle = styles.NoahBold;
+    case 'SFProDisplayBold':
+      textStyle = styles.SFProDisplayBold;
       break;
-    case 'NoahRegular':
-      textStyle = styles.NoahRegular;
+    case 'SFProDisplayHeavy':
+      textStyle = styles.SFProDisplayHeavy;
       break;
 
-    case 'bold':
-      textStyle = styles.bold;
+    case 'SFProDisplayLight':
+      textStyle = styles.SFProDisplayLight;
       break;
-    case 'extraBold':
-      textStyle = styles.extraBold;
+    case 'SFProDisplayMedium':
+      textStyle = styles.SFProDisplayMedium;
       break;
-    case 'light':
-      textStyle = styles.light;
+    case 'SFProDisplayRegular':
+      textStyle = styles.SFProDisplayRegular;
+      break;
+    case 'SFProDisplaySemibold':
+      textStyle = styles.SFProDisplaySemibold;
+      break;
+    case 'SFProDisplayThin':
+      textStyle = styles.SFProDisplayThin;
+      break;
+    case 'SFProTextbold':
+      textStyle = styles.SFProTextbold;
+      break;
+    case 'SFProTextRegular':
+      textStyle = styles.SFProTextRegular;
       break;
     default:
-      textStyle = styles.regular;
+      textStyle = styles.SFProDisplayRegular;
       break;
   }
   const passedStyles = Array.isArray(style)
@@ -53,26 +70,41 @@ const CustomText: FunctionComponent<CustomTextProps> = ({
   );
 };
 const styles = StyleSheet.create({
-  NoahRegular: {
-    fontFamily: 'Noah-Regular',
+  SFProDisplayBlack: {
+    fontFamily: 'SFProDisplay-Black',
   },
-  NoahBold: {
-    fontFamily: 'Noah-Bold',
-  },
-
-  regular: {
-    fontFamily: 'Nunito-Regular',
-  },
-  bold: {
-    fontFamily: 'Nunito-Bold',
+  SFProDisplayBold: {
+    fontFamily: 'SFProDisplay-Bold',
   },
 
-  extraBold: {
-    fontFamily: 'Nunito-ExtraBold',
+  SFProDisplayHeavy: {
+    fontFamily: 'SFProDisplay-Heavy',
+  },
+  SFProDisplayLight: {
+    fontFamily: 'SFProDisplay-Light',
   },
 
-  light: {
-    fontFamily: 'Nunito-Light',
+  SFProDisplayMedium: {
+    fontFamily: 'SFProDisplay-Medium',
+  },
+
+  SFProDisplayRegular: {
+    fontFamily: 'SFProDisplay-Regular',
+  },
+  SFProDisplaySemibold: {
+    fontFamily: 'SFProDisplaySemibold',
+  },
+  SFProDisplayThin: {
+    fontFamily: 'SFProDisplay-Thin',
+  },
+  SFProDisplayUltralight: {
+    fontFamily: 'SFProDisplay-Ultralight',
+  },
+  SFProTextbold: {
+    fontFamily: 'SFProTextbold',
+  },
+  SFProTextRegular: {
+    fontFamily: 'SFProText-regular',
   },
 });
 export default CustomText;

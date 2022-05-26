@@ -27,6 +27,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
 const Section: React.FC<{
   title: string;
 }> = ({children, title}) => {
@@ -55,6 +58,32 @@ const Section: React.FC<{
   );
 };
 
+const Tab = createBottomTabNavigator();
+
+function Events() {
+  return (
+    <View>
+      <Text>There will be Events Screen</Text>
+    </View>
+  );
+}
+
+function Friends() {
+  return (
+    <View>
+      <Text>There will be Friends Screen</Text>
+    </View>
+  );
+}
+
+function Profile() {
+  return (
+    <View>
+      <Text>There will be Profile Screen</Text>
+    </View>
+  );
+}
+
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -63,33 +92,13 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Events" component={Events} />
+        <Tab.Screen name="Friends" component={Friends} />
+        <Tab.Screen name="Profile" component={Profile} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 

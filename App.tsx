@@ -1,5 +1,4 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import RootTabNavigator from './src/navigation/RootTabNavigator';
 
 // const Section: React.FC<{
@@ -39,20 +38,5 @@ const App = () => {
 
   return <RootTabNavigator />;
 };
-
-const styles = StyleSheet.create({
-  backgroundStyle: {
-    // flexDirection: 'row',
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-  },
-  ttl: {
-    marginTop: 52,
-    fontSize: 24,
-    color: '#000',
-  },
-});
 
 export default App;

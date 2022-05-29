@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import EventsIcon from '../../assets/SVG/eventsTabIcon.svg';
 import FriendsIcon from '../../assets/SVG/friendsTabIcon.svg';
 import ProfileIcon from '../../assets/SVG/profileTabIcon.svg';
+import colors from '../utils/colors';
 const Tab = createBottomTabNavigator();
 
 export default function RootTabNavigator() {
@@ -15,7 +16,9 @@ export default function RootTabNavigator() {
       <Tab.Navigator
         screenOptions={({route}) => ({
           tabBarIcon: ({focused}) => {
-            let tabColor = focused ? '#5651D4' : '#A3A3A3';
+            let tabColor = focused
+              ? colors.MAIN_THEME_PURPLE
+              : colors.MAIN_THEME_GRAY;
 
             if (route.name === 'События') {
               // You can return any component that you like here!
@@ -28,8 +31,8 @@ export default function RootTabNavigator() {
           },
         })}
         tabBarOptions={{
-          activeTintColor: '#5651D4',
-          inactiveTintColor: '#A3A3A3',
+          activeTintColor: colors.MAIN_THEME_PURPLE,
+          inactiveTintColor: colors.MAIN_THEME_GRAY,
         }}>
         <Tab.Screen name="События" component={EventsScreen} />
         <Tab.Screen name="Друзья" component={FriendsScreen} />

@@ -3,16 +3,20 @@ import {View, StyleSheet, Text} from 'react-native';
 import Head from '../../screens/NewEvents/components/Head';
 import Button1 from '../../screens/NewEvents/components/Button';
 import New from '../../screens/NewEvents/components/New';
-import Adds from '../../screens/NewEvents/components/Adds';
 
 export default function NewEvents() {
   return (
     <View style={styles.container}>
-      <Head />
+      <Head
+        pressFunction={function (): void {
+          throw new Error('Function not implemented.');
+        }}
+      />
       <View>
         <Text style={styles.newevs}>Новые события</Text>
       </View>
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           borderColor: 'lightgrey',
           borderRadius: 8,
@@ -23,13 +27,26 @@ export default function NewEvents() {
         <New />
 
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             flexDirection: 'row',
             marginHorizontal: 10,
             margin: 10,
           }}>
-          <Button1 text="Не пойду" accent={true} onPress={undefined} />
-          <Button1 text="Пойду" accent={undefined} onPress={undefined} />
+          <Button1
+            text="Не пойду"
+            accent={true}
+            onPress={function (): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
+          <Button1
+            text="Пойду"
+            accent={false}
+            onPress={function (): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
         </View>
       </View>
       <View>
@@ -43,20 +60,8 @@ export default function NewEvents() {
           borderWidth: 1,
           marginLeft: 12,
           marginRight: 12,
-        }}>
-        <Adds />
-
-        <View
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{
-            flexDirection: 'row',
-            marginHorizontal: 10,
-            margin: 10,
-          }}>
-          <Button1 text="Не пойду" accent={true} onPress={undefined} />
-          <Button1 text="Пойду" accent={undefined} onPress={undefined} />
-        </View>
-      </View>
+        }}
+      />
       <View
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
@@ -66,20 +71,8 @@ export default function NewEvents() {
           borderWidth: 1,
           marginLeft: 12,
           marginRight: 12,
-        }}>
-        <Adds />
-
-        <View
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{
-            flexDirection: 'row',
-            marginHorizontal: 10,
-            margin: 10,
-          }}>
-          <Button1 text="Не пойду" accent={true} onPress={undefined} />
-          <Button1 text="Пойду" accent={undefined} onPress={undefined} />
-        </View>
-      </View>
+        }}
+      />
     </View>
   );
 }

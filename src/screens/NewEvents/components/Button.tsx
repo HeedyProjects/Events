@@ -3,6 +3,8 @@ import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 type MyButton = {
   text: string;
+  accent: boolean;
+  onPress: () => void;
 };
 
 export default function Button1({text, accent, onPress}: MyButton) {

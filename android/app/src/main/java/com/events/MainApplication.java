@@ -1,5 +1,5 @@
 package com.events;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
+
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -88,27 +88,4 @@ public class MainApplication extends Application implements ReactApplication {
       }
     }
   }
-}
-
-public class MainApplication extends Application implements ReactApplication {
-
-    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-        @Override
-        public boolean getUseDeveloperSupport() {
-            return BuildConfig.DEBUG;
-        }
-
-        @Override
-        protected List<ReactPackage> getPackages() {
-            return Arrays.<ReactPackage>asList(
-                    new MainReactPackage(),
-            new SplashScreenReactPackage()  //here
-            );
-        }
-    };
-
-    @Override
-    public ReactNativeHost getReactNativeHost() {
-        return mReactNativeHost;
-    }
 }

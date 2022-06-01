@@ -1,16 +1,11 @@
 package com.events;
-import android.os.Bundle; 
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
- @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        SplashScreen.show(this);  
-        super.onCreate(savedInstanceState);
-    }
+
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
    * rendering of the component.
@@ -42,27 +37,4 @@ public class MainActivity extends ReactActivity {
       return reactRootView;
     }
   }
-}
-
-public class MainApplication extends Application implements ReactApplication {
-
-    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-        @Override
-        public boolean getUseDeveloperSupport() {
-            return BuildConfig.DEBUG;
-        }
-
-        @Override
-        protected List<ReactPackage> getPackages() {
-            return Arrays.<ReactPackage>asList(
-                    new MainReactPackage(),
-            new SplashScreenReactPackage()  //here
-            );
-        }
-    };
-
-    @Override
-    public ReactNativeHost getReactNativeHost() {
-        return mReactNativeHost;
-    }
 }

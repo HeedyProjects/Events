@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
 
   frame: {
     borderColor: 'lightgrey',
-    borderRadius: 8,
+    borderRadius: 9,
     borderWidth: 1,
     marginLeft: 12,
     marginRight: 12,
     margin: 10,
-    padding: 46,
+    padding: 45,
   },
 });

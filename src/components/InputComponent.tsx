@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet, View, TextInput} from 'react-native';
-// import CustomText from './CustomText';
 interface IProps {
   placeholder?: string;
+  placeholderTextColor?: string;
   onChangeText?: any;
   keyboardType?: any;
+  marginBottom?: number;
   value?: any;
   children?: React.ReactNode;
 }
@@ -12,13 +13,16 @@ export default function InputComponent({
   placeholder,
   children,
   onChangeText,
+  placeholderTextColor,
+  marginBottom,
 }: IProps) {
   return (
-    <View style={styles.mainbox}>
+    <View style={[styles.mainbox, {marginBottom: marginBottom}]}>
       <TextInput
         style={styles.inputStyles}
         onChangeText={onChangeText}
         placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
       />
       {children}
     </View>
@@ -32,7 +36,6 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   mainbox: {
-    
     flexDirection: 'row',
     // justifyContent: 'space-between',
     alignSelf: 'center',
@@ -42,12 +45,13 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 40,
     borderColor: 'gray',
-    borderWidth: 1,
     marginRight: 16,
     marginLeft: 16,
     borderRadius: 8,
     paddingLeft: 30,
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#F5F5F5',
+    fontFamily: 'SFProText-regular',
+    fontSize: 16,
   },
   text: {
     fontSize: 34,

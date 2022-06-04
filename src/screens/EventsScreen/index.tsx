@@ -15,21 +15,19 @@ export default function Events() {
       </CustomText>
       <InputComponent placeholder={'Найти'}>
         <View style={styles.svgWrapper}>
-        <SearchIcon />
+          <SearchIcon />
         </View>
-      
       </InputComponent>
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   svgWrapper: {
     position: 'absolute',
     left: 20,
   },
-  
+
   inputWrapper: {
     flexDirection: 'row',
     marginRight: 16,

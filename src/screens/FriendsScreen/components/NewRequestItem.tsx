@@ -6,12 +6,13 @@ import colors from '../../../utils/colors';
 
 const titleLeft = 'Скрыть';
 const titleRight = 'Принять';
+
 export default function NewRequestItem() {
   return (
     <View style={styles.requestItem}>
       <RequestDetails />
       <View style={styles.buttonBox}>
-        <Button title={titleLeft} />
+        <Button accent={false} title={titleLeft} />
         <Button accent title={titleRight} />
       </View>
     </View>

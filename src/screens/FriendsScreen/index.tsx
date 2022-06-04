@@ -1,54 +1,50 @@
 import React from 'react';
-import {View, SafeAreaView, StyleSheet, FlatList} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  ImageSourcePropType,
+} from 'react-native';
 import InviteFriend from './components/InviteFriend';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Header from './components/Header';
 import SearchLine from './components/SearchLine';
 import NewRequestHeader from './components/NewRequstsHeader';
 import NewRequestItem from './components/NewRequestItem';
 import Item from './components/FlatListItem';
+import {useSelector} from 'react-redux';
 import colors from '../../utils/colors';
-const DATA = [
-  {
-    photo: require('../../../assets/profileIcons/minerva.jpg'),
-    name: 'Анна Ерёмина',
-    commonEvents: 1,
-  },
-  {
-    photo: require('../../../assets/profileIcons/minerva.jpg'),
-    name: 'Елена Давыдова',
-    commonEvents: 2,
-  },
-  {
-    photo: require('../../../assets/profileIcons/minerva.jpg'),
-    name: 'Анна Ерёмина',
-    commonEvents: 1,
-  },
-  {
-    photo: require('../../../assets/profileIcons/minerva.jpg'),
-    name: 'Елена Давыдова',
-    commonEvents: 2,
-  },
-];
+
+interface friendType {
+  item: {
+    photo: ImageSourcePropType;
+    name: string;
+    commonEvents: number;
+  };
+}
 
 export default function Events() {
-  const renderItem = ({item}) => <Item friend={item} />;
+  const renderItem = ({item}: friendType) => <Item friend={item} />;
+  const data = useSelector(state => state.friends.friends);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAwareScrollView>
+    <KeyboardAwareScrollView>
+      <SafeAreaView style={styles.container}>
         <View>
           <InviteFriend />
           <Header />
+
           <SearchLine />
 
           <NewRequestHeader />
+
           <NewRequestItem />
 
-          <FlatList data={DATA} renderItem={renderItem} />
+          <FlatList data={data} renderItem={renderItem} />
         </View>
-      </KeyboardAwareScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 }
 
@@ -58,6 +54,6 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     paddingTop: 26,
     backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
-    flex: 1,
+    // flex: 1,
   },
 });

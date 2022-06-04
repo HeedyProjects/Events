@@ -39,7 +39,9 @@ export default function Events() {
         showsVerticalScrollIndicator={false}
       />
       <TouchableOpacity style={styles.newEventButton}>
-        <CustomText style={styles.buttonText} textType="SFProTextbold">+ Новое событие</CustomText>
+        <CustomText style={styles.buttonText} textType="SFProTextbold">
+          + Новое событие
+        </CustomText>
       </TouchableOpacity>
     </SafeAreaView>
   );

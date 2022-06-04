@@ -31,7 +31,7 @@ export default function Events() {
   return (
     <KeyboardAwareScrollView>
       <SafeAreaView style={styles.container}>
-        <View>
+        <View style={styles.paddings}>
           <InviteFriend />
           <Header />
 
@@ -50,10 +50,12 @@ export default function Events() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
+    // flex: 1,
+  },
+  paddings: {
     paddingLeft: 16,
     paddingRight: 15,
     paddingTop: 26,
-    backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
-    // flex: 1,
   },
 });

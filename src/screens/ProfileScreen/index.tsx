@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import CustomText from '../../components/CustomText';
+import colors from '../../utils/colors';
 import Head from '../ProfileScreen/Head';
 import Info from '../ProfileScreen/Info';
 import Notifications from '../ProfileScreen/Notifications';
@@ -26,6 +27,7 @@ export default function Events() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
   },
 
   title: {

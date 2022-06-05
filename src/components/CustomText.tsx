@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SFProDisplay-Regular',
   },
   SFProDisplaySemibold: {
-    fontFamily: 'SFProDisplaySemibold',
+    fontFamily: 'SFProDisplay-Semibold',
   },
   SFProDisplayThin: {
     fontFamily: 'SFProDisplay-Thin',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SFProDisplay-Ultralight',
   },
   SFProTextbold: {
-    fontFamily: 'SFProTextbold',
+    fontFamily: 'SFProText-bold',
   },
   SFProTextRegular: {
     fontFamily: 'SFProText-regular',

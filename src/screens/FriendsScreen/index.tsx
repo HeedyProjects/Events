@@ -36,8 +36,8 @@ export default function Events() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAwareScrollView>
-        <View>
+      <View>
+        <KeyboardAwareScrollView>
           <InviteFriend />
           <Header />
           <SearchLine />
@@ -45,9 +45,15 @@ export default function Events() {
           <NewRequestHeader />
           <NewRequestItem />
 
-          <FlatList data={DATA} renderItem={renderItem} />
-        </View>
-      </KeyboardAwareScrollView>
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            nestedScrollEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+          />
+        </KeyboardAwareScrollView>
+      </View>
     </SafeAreaView>
   );
 }
@@ -58,6 +64,6 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     paddingTop: 26,
     backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
-    flex: 1,
+    // flex: 1,
   },
 });

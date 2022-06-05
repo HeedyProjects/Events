@@ -30,7 +30,7 @@ export default function Events() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      <View style={styles.paddings}>
         <KeyboardAwareScrollView>
           <InviteFriend />
           <Header />

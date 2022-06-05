@@ -29,9 +29,9 @@ export default function Events() {
   const data = useSelector(state => state.friends.friends);
 
   return (
-    <KeyboardAwareScrollView>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.paddings}>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <KeyboardAwareScrollView>
           <InviteFriend />
           <Header />
 
@@ -41,10 +41,16 @@ export default function Events() {
 
           <NewRequestItem />
 
-          <FlatList data={data} renderItem={renderItem} />
-        </View>
-      </SafeAreaView>
-    </KeyboardAwareScrollView>
+          <FlatList
+            data={data}
+            renderItem={renderItem}
+            nestedScrollEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+          />
+        </KeyboardAwareScrollView>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -57,5 +63,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 15,
     paddingTop: 26,
+    backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
+    // flex: 1,
   },
 });

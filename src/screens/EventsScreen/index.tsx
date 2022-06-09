@@ -1,4 +1,14 @@
 import React from 'react';
+import database from '@react-native-firebase/database';
+
+const eventsData = database()
+  .ref('/Events')
+  .once('value')
+  .then(snapshot => {
+    snapshot.val();
+  });
+
+console.log('WWWWWW', eventsData);
 import {
   StyleSheet,
   SafeAreaView,
@@ -12,7 +22,7 @@ import BellIcon from '../../../assets/SVG/BellIcon.svg';
 import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 import Eventcomponent from './components/EventComponent';
 import {EVENT_DATA} from './components/EventComponent';
-console.log(EVENT_DATA);
+// console.log(EVENT_DATA);
 export default function Events() {
   return (
     <SafeAreaView style={styles.container}>

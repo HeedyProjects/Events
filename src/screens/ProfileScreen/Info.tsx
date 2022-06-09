@@ -13,7 +13,7 @@ export default function Info() {
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
           flexDirection: 'row',
-          marginHorizontal: 10,
+          marginHorizontal: 11,
           marginTop: 20,
         }}>
         <Image

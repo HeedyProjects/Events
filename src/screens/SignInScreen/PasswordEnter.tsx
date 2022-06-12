@@ -3,7 +3,7 @@ import {StyleSheet, TextInput, SafeAreaView} from 'react-native';
 import colors from '../../utils/colors';
 import Password from '../../../assets/SVG/Password.svg';
 
-export default function Password() {
+export default function Pass() {
   const [text, onChangeText] = React.useState('*******');
 
   return (

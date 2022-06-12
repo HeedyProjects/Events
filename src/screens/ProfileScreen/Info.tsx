@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, Image, TouchableOpacity, View} from 'react-native';
 import Path from '../../../assets/SVG/Path.svg';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
@@ -9,13 +9,7 @@ const bio = 'Фото и личные данные';
 export default function Info() {
   return (
     <View style={styles.container}>
-      <View
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          flexDirection: 'row',
-          marginHorizontal: 11,
-          marginTop: 20,
-        }}>
+      <View style={styles.page}>
         <Image
           style={styles.girl}
           source={require('../../../assets/profileIcons/girl.jpeg')}
@@ -55,6 +49,7 @@ const styles = StyleSheet.create({
     marginTop: -60,
     padding: 12,
     fontWeight: 'bold',
+    marginRight: 10,
   },
 
   bio: {
@@ -70,5 +65,10 @@ const styles = StyleSheet.create({
     width: 22,
     right: -20,
     top: -19,
+  },
+  page: {
+    flexDirection: 'row',
+    marginHorizontal: 10,
+    marginTop: 20,
   },
 });

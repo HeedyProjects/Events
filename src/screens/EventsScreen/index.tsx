@@ -1,14 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import database from '@react-native-firebase/database';
 
-const eventsData = database()
-  .ref('/Events')
-  .once('value')
-  .then(snapshot => {
-    snapshot.val();
-  });
 
-console.log('WWWWWW', eventsData);
 import {
   StyleSheet,
   SafeAreaView,
@@ -22,8 +15,28 @@ import BellIcon from '../../../assets/SVG/BellIcon.svg';
 import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 import Eventcomponent from './components/EventComponent';
 import {EVENT_DATA} from './components/EventComponent';
-// console.log(EVENT_DATA);
+
+
 export default function Events() {
+  const getEventsData = async () => {
+  const response = await database().ref('./Events');
+  const data = await response.once('value');
+  const eventsList = await data(snapshot => {
+       console.log('User data: ', snapshot.val());
+     })
+}
+
+getEventsData();
+//  database()
+//   .ref('/Events')
+//   .once('value')
+//   .then(snapshot => {
+//     console.log('User data: ', snapshot.val());
+//   });
+
+  // useEffect(()=> eventsData())
+
+  // console.log('YYYYY', eventsData())
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bellIconWrapper}>
@@ -101,3 +114,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 });
+function ref(arg0: string) {
+  throw new Error('Function not implemented.');
+}
+

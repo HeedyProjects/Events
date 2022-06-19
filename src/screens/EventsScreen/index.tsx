@@ -38,6 +38,7 @@ export default function Events({navigation}: {navigation: any}) {
     [],
   );
 
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bellIconWrapper}>

@@ -33,7 +33,7 @@ export const EVENT_DATA = [
     date: '21:00',
     status: false,
   },
-]
+];
 export default function EventComponent({item}: any) {
   return (
     <View style={styles.eventItemWrapper}>

@@ -1,8 +1,16 @@
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet, ImageSourcePropType} from 'react-native';
 import CustomText from '../../../components/CustomText';
 import colors from '../../../utils/colors';
-const Item = ({friend}) => (
+interface friendType {
+  friend: {
+    photo: ImageSourcePropType;
+    name: string;
+    commonEvents: number;
+  };
+}
+
+const Item = ({friend}: friendType) => (
   <View style={styles.listItem}>
     <Image source={friend.photo} style={styles.profileIcon} />
     <View style={styles.itemText}>

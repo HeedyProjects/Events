@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import database from '@react-native-firebase/database';
-
+// import database from '@react-native-firebase/database';
+import Backicon from '../../../assets/SVG/Backicon.svg';
 import {
   StyleSheet,
   SafeAreaView,
@@ -12,20 +12,21 @@ import InputComponent from '../../components/InputComponent';
 import CustomText from '../../components/CustomText';
 import BellIcon from '../../../assets/SVG/BellIcon.svg';
 import SearchIcon from '../../../assets/SVG/searchIcon.svg';
-import Eventcomponent from '../EventsScreen/components/EventComponent';
-import {EVENT_DATA} from '../EventsScreen/components/EventComponent';
+// import Eventcomponent from '../EventsScreen/components/EventComponent';
+// import {EVENT_DATA} from '../EventsScreen/components/EventComponent';
 
 export default function AddNewEventScreen({navigation}: {navigation: any}) {
- 
-
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.bellIconWrapper}>
-        <BellIcon />
+      <View style={styles.eventsHeader}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Backicon />
+        </TouchableOpacity>
+
+        <CustomText style={styles.text} textType="SFProDisplayBold">
+          Добавить новое событие
+        </CustomText>
       </View>
-      <CustomText style={styles.text} textType="SFProDisplayBold">
-        События
-      </CustomText>
 
       <InputComponent
         placeholder={'Поиск'}
@@ -35,26 +36,15 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
           <SearchIcon />
         </View>
       </InputComponent>
-
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  newEventButton: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 95,
-    paddingRight: 95,
+  eventsHeader: {
     marginLeft: 16,
-    marginRight: 16,
-    marginBottom: 17,
-    backgroundColor: '#5651D4',
-    borderRadius: 8,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
+    magrginTop: 55,
+    flexDirection: 'row',
   },
   //=====================================
   svgWrapper: {
@@ -72,17 +62,11 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   text: {
-    fontSize: 34,
+    fontSize: 14,
     marginLeft: 16,
     marginBottom: 18,
   },
-  bellIconWrapper: {
-    marginRight: 22,
-    marginLeft: 16,
-    marginBottom: 16,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
+ 
 });
 function ref(arg0: string) {
   throw new Error('Function not implemented.');

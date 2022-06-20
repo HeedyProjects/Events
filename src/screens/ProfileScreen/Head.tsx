@@ -2,9 +2,14 @@ import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import Group from '../../../assets/SVG/Group.svg';
 import CustomText from '../../components/CustomText';
+import auth from '@react-native-firebase/auth';
 const title = 'Выйти';
 
 export default function Head() {
+  const signOut = () =>
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
   return (
     <View
       // eslint-disable-next-line react-native/no-inline-styles
@@ -17,7 +22,7 @@ export default function Head() {
       <CustomText textType="SFProDisplayBlack" style={styles.title}>
         {title}
       </CustomText>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={signOut}>
         <Group />
       </TouchableOpacity>
     </View>

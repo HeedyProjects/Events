@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import database from '@react-native-firebase/database';
+
 import {
   StyleSheet,
   SafeAreaView,
@@ -12,8 +14,31 @@ import BellIcon from '../../../assets/SVG/BellIcon.svg';
 import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 import Eventcomponent from './components/EventComponent';
 import {EVENT_DATA} from './components/EventComponent';
-console.log(EVENT_DATA);
-export default function Events() {
+
+export default function Events({navigation}: {navigation: any}) {
+  useEffect(
+    () =>
+      async function eventsData() {
+        const databaseRef = await database().ref('/Events');
+        const data = await databaseRef.once('value');
+        const eventsList = data.val();
+        console.log('YYYYYYY', eventsList);
+      },
+    [],
+  );
+
+  useEffect(
+    () =>
+      async function userData() {
+        const dataBaseRef = await database().ref('/Users');
+        const data = await dataBaseRef.once('value');
+        const userList = data.val();
+        console.log('WWWWWWWWWW', userList);
+      },
+    [],
+  );
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bellIconWrapper}>
@@ -38,7 +63,9 @@ export default function Events() {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       />
-      <TouchableOpacity style={styles.newEventButton}>
+      <TouchableOpacity
+        style={styles.newEventButton}
+        onPress={() => navigation.navigate('AddNewEventScreen')}>
         <CustomText style={styles.buttonText} textType="SFProTextbold">
           + Новое событие
         </CustomText>
@@ -91,3 +118,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 });
+function ref(arg0: string) {
+  throw new Error('Function not implemented.');
+}

@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import EventsIcon from '../../assets/SVG/eventsTabIcon.svg';
 import FriendsIcon from '../../assets/SVG/friendsTabIcon.svg';
 import ProfileIcon from '../../assets/SVG/profileTabIcon.svg';
+import SignInScreen from '../screens/SignInScreen/Index';
 import colors from '../utils/colors';
 const Tab = createBottomTabNavigator();
 

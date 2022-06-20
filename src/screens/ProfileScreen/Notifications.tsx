@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import Toggle from '../../../assets/SVG/Toggle.svg';
+import Photo from '../../components/ImagePicker';
 
 export default function Notifications() {
   return (
@@ -8,6 +9,7 @@ export default function Notifications() {
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
       <Text style={styles.nots}>Уведомления</Text>
       <Toggle style={styles.image} />
+      <Photo />
     </View>
   );
 }

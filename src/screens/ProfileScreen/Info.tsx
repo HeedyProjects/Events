@@ -14,7 +14,8 @@ export default function Info() {
           style={styles.girl}
           source={require('../../../assets/profileIcons/girl.jpeg')}
         />
-        <View style={{}}>
+
+        <View style={styles.profileName}>
           <CustomText textType="SFProDisplayBlack" style={styles.name}>
             {name}
           </CustomText>
@@ -22,8 +23,9 @@ export default function Info() {
             {bio}
           </CustomText>
         </View>
-        <TouchableOpacity>
-          <Path style={styles.path} />
+
+        <TouchableOpacity style={styles.path}>
+          <Path width={12} height={12} />
         </TouchableOpacity>
       </View>
     </View>
@@ -32,43 +34,48 @@ export default function Info() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
   },
-
+  profileName: {
+    marginBottom: 8,
+    marginTop: 8,
+  },
   girl: {
-    height: 70,
-    width: 70,
-    marginLeft: -30,
-    margin: 10,
-    marginTop: -55,
-    borderRadius: 14,
+    height: 64,
+    width: 64,
+    borderRadius: 4,
+    marginRight: 16,
   },
 
   name: {
-    fontSize: 18,
-    marginTop: -60,
-    padding: 12,
-    fontWeight: 'bold',
-    marginRight: 10,
+    fontWeight: '500',
+    fontSize: 17,
+    lineHeight: 24,
+    letterSpacing: -0.41,
+    color: colors.SCREEN_TITLE,
   },
 
   bio: {
     color: colors.MAIN_THEME_GRAY,
-    padding: 19,
-    marginTop: -24,
-    marginLeft: -7,
-    fontSize: 17,
+    fontWeight: '400',
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: -0.32,
   },
 
   path: {
-    height: 20,
-    width: 22,
-    right: -20,
-    top: -19,
+    position: 'absolute',
+    alignSelf: 'center',
+    right: 22,
   },
   page: {
+    borderColor: 'lightgrey',
+    borderRadius: 8,
+    borderWidth: 1,
+    marginLeft: 15,
+    marginRight: 16,
+    marginTop: 24,
+    padding: 16,
     flexDirection: 'row',
-    marginHorizontal: 10,
-    marginTop: 20,
   },
 });

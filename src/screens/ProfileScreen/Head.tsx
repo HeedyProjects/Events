@@ -3,6 +3,7 @@ import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import Group from '../../../assets/SVG/Group.svg';
 import CustomText from '../../components/CustomText';
 import auth from '@react-native-firebase/auth';
+import colors from '../../utils/colors';
 const title = 'Выйти';
 
 export default function Head() {
@@ -11,15 +12,8 @@ export default function Head() {
       .signOut()
       .then(() => console.log('User signed out!'));
   return (
-    <View
-      // eslint-disable-next-line react-native/no-inline-styles
-      style={{
-        flexDirection: 'row',
-        margin: 30,
-        marginTop: 50,
-        alignSelf: 'flex-end',
-      }}>
-      <CustomText textType="SFProDisplayBlack" style={styles.title}>
+    <View style={styles.container}>
+      <CustomText textType="SFProDisplayRegular" style={styles.title}>
         {title}
       </CustomText>
       <TouchableOpacity onPress={signOut}>
@@ -31,9 +25,20 @@ export default function Head() {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 17,
-    fontWeight: 'bold',
-    color: 'red',
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.EXIT_COLOR,
     marginRight: 6,
+    lineHeight: 24,
+    letterSpacing: -0.32,
+  },
+  container: {
+    paddingTop: 10,
+    paddingLeft: 9,
+    paddingRight: 9,
+    flexDirection: 'row',
+    marginRight: 4,
+    marginTop: 16,
+    alignSelf: 'flex-end',
   },
 });

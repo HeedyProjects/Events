@@ -14,7 +14,7 @@ export default function Photo() {
   };
   return (
     <View style={styles.pic}>
-      <Button title="Выберите" onPress={takeAPhotoFromLibrary} />
+      <Button title="Выбрать" onPress={takeAPhotoFromLibrary} />
     </View>
   );
 }

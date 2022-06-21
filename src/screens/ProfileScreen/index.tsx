@@ -15,9 +15,9 @@ export default function Events() {
       <CustomText textType="SFProDisplayBlack" style={styles.title}>
         {title}
       </CustomText>
-      <View style={styles.frame}>
-        <Info />
-      </View>
+
+      <Info />
+
       <Notifications />
       <Link />
     </View>
@@ -31,20 +31,21 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontWeight: 'bold',
-    fontSize: 28,
-    margin: 10,
-    marginTop: 20,
-    marginLeft: 12,
+    fontWeight: '700',
+    fontSize: 34,
+    lineHeight: 40,
+    letterSpacing: 0.37,
+    color: colors.SCREEN_TITLE,
+    marginLeft: 15,
   },
 
   frame: {
     borderColor: 'lightgrey',
-    borderRadius: 9,
+    borderRadius: 8,
     borderWidth: 1,
-    marginLeft: 12,
-    marginRight: 12,
-    margin: 10,
+    marginLeft: 15,
+    marginRight: 16,
+    marginTop: 24,
     padding: 45,
   },
 });

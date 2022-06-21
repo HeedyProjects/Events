@@ -3,7 +3,7 @@ import SplashScreen from 'react-native-splash-screen';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import store, {persistor} from './src/store';
-import SignInScreen from './src/screens/SignInScreen/Index';
+import EntryStackNavigator from './src/navigation/EntryStackNavigator';
 import ScreenStackNavigator from './src/navigation/ScreenStackNavigator';
 import auth from '@react-native-firebase/auth';
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
   if (initializing) return null;
 
   if (!user) {
-    return <SignInScreen />;
+    return <EntryStackNavigator />;
   }
   return (
     <Provider store={store}>

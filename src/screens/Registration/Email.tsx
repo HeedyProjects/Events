@@ -3,34 +3,43 @@ import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
 import Emails from '../../../assets/SVG/Emails.svg';
 
 export default function Email() {
-  const [text, onChangeText] = React.useState('example@com');
+  const [text, onChangeText] = React.useState('');
 
   return (
-    <SafeAreaView>
-      <Text style={styles.email}> Эл. почта</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.email}>Эл. почта</Text>
       <View style={styles.change}>
         <Emails style={styles.pic} />
-        <TextInput onChangeText={onChangeText} value={text} />
+        <TextInput
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="example@sample.com"
+        />
       </View>
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   email: {
-    margin: 10,
-    fontSize: 18,
-    marginBottom: 2,
+    fontSize: 13,
+    fontWeight: '400',
+    lineHeight: 16,
+    marginBottom: 8,
+    letterSpacing: -0.08,
+    color: '#333333',
   },
-
+  container: {
+    marginBottom: 24,
+  },
   change: {
     borderColor: 'lightgrey',
-    borderWidth: 2,
-    borderRadius: 4,
-    margin: 10,
+    borderWidth: 1,
+    borderRadius: 8,
     flexDirection: 'row',
   },
 
   pic: {
     margin: 10,
+    marginTop: 13,
   },
 });

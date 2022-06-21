@@ -6,7 +6,7 @@ import Photo from '../../components/ImagePicker';
 export default function Notifications() {
   return (
     <View>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      <View style={styles.container}>
         <Text style={styles.nots}>Уведомления</Text>
         <Toggle style={styles.image} />
         <View style={styles.photo}>
@@ -19,6 +19,10 @@ export default function Notifications() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   photo: {
     position: 'absolute',
     top: 100,

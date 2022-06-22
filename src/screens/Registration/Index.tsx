@@ -1,13 +1,13 @@
 import React from 'react';
 import {SafeAreaView, View, StyleSheet, ScrollView} from 'react-native';
-import Head from '../Registration/Head';
-import AddPhoto from '../Registration/AddPhoto';
-import Name from '../Registration/Name';
-import Birth from '../Registration/Birth';
-import Email from '../Registration/Email';
-import Password from '../Registration/Password';
-import PasswordAgain from '../Registration/PasswordAgain';
-import Button from '../Registration/Button';
+import Head from './Head';
+import AddPhoto from './AddPhoto';
+import Name from './Name';
+import Birth from './Birth';
+import Email from './Email';
+import Password from './Password';
+import PasswordAgain from './PasswordAgain';
+import Button from './Button';
 
 export default function Registration() {
   return (

@@ -38,7 +38,6 @@ export default function Events({navigation}: {navigation: any}) {
     [],
   );
 
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bellIconWrapper}>
@@ -56,13 +55,15 @@ export default function Events({navigation}: {navigation: any}) {
           <SearchIcon />
         </View>
       </InputComponent>
-      <FlatList
-        nestedScrollEnabled={true}
-        data={EVENT_DATA}
-        renderItem={Eventcomponent}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate('EventInvitation')}>
+        <FlatList
+          nestedScrollEnabled={true}
+          data={EVENT_DATA}
+          renderItem={Eventcomponent}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
+      </TouchableOpacity>
       <TouchableOpacity
         style={styles.newEventButton}
         onPress={() => navigation.navigate('AddNewEventScreen')}>

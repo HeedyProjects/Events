@@ -1,20 +1,18 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import image from '../../../assets//SVG/image.svg';
+import {View, StyleSheet, Image} from 'react-native';
 
 export default function Pic() {
   return (
-    <View>
-      <image style={styles.pic} />
+    <View style={styles.pic}>
+      <Image source={require('../../../assets/Multitasking.png')} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   pic: {
-    justifyContent: 'center',
-    marginLeft: 15,
-    marginTop: 30,
+    marginLeft: 35.08,
+    marginTop: 88,
+    marginBottom: 60,
   },
 });

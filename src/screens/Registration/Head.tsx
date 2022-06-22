@@ -1,12 +1,17 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import Path from '../../../assets/SVG/Path.svg';
+import Path from '../../../assets/SVG/LeftAccessory.svg';
+import colors from '../../utils/colors';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Head() {
+  const navigation = useNavigation();
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
-    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-      <TouchableOpacity>
+    <View style={{}}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}>
         <Path style={styles.image} />
       </TouchableOpacity>
       <Text style={styles.reg}>Регистрация</Text>
@@ -15,15 +20,14 @@ export default function Head() {
 }
 const styles = StyleSheet.create({
   image: {
-    marginLeft: 10,
-    margin: 10,
+    marginTop: 7.61,
+    marginLeft: -7,
   },
-
   reg: {
-    fontSize: 19,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginRight: 100,
-    margin: 10,
+    fontWeight: '700',
+    fontSize: 34,
+    lineHeight: 40,
+    letterSpacing: 0.37,
+    color: colors.SCREEN_TITLE,
   },
 });

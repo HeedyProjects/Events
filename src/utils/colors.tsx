@@ -9,6 +9,7 @@ const colors = {
   SEE_MORE: '#F8A53B',
   SEARCH_LINE_BACKGROUND: '#F5F5F5',
   FRIENDS_SCREEN_BACKGROUND: '#FFFFFF',
+  EXIT_COLOR: '#F44E4E',
 };
 
 export default colors;

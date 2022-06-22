@@ -3,36 +3,44 @@ import {StyleSheet, TextInput, SafeAreaView, View} from 'react-native';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 import Email from '../../../assets/SVG/email.svg';
-const title = 'Эл.почта';
+const title = 'Эл. почта';
 
-export default function Mail() {
-  const [text, onChangeText] = React.useState('example@sample.com');
-
+export default function Mail({email, setEmail}) {
   return (
     <SafeAreaView>
-      <CustomText textType="SFProDisplayBlack" style={styles.title}>
+      <CustomText textType="SFProDisplayRegular" style={styles.title}>
         {title}
       </CustomText>
       <View style={styles.change}>
         <Email style={styles.pic} />
-        <TextInput onChangeText={onChangeText} value={text} />
+        <TextInput
+          onChangeText={text => setEmail(text)}
+          value={email}
+          placeholder="example@sample.com"
+        />
       </View>
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   title: {
-    margin: 10,
-    fontSize: 18,
-    marginBottom: 2,
+    fontWeight: '400',
+    fontSize: 13,
+    lineHeight: 16,
+    letterSpacing: -0.08,
+    color: colors.SCREEN_TITLE,
+    marginLeft: 16,
+    marginBottom: 8,
   },
 
   change: {
     borderColor: colors.FLAT_LIST_BORDER,
-    borderWidth: 2,
-    borderRadius: 4,
-    margin: 10,
+    borderWidth: 1,
+    borderRadius: 8,
+    marginLeft: 16,
+    marginRight: 15,
     flexDirection: 'row',
+    marginBottom: 24,
   },
 
   pic: {

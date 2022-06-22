@@ -3,14 +3,18 @@ import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
 import Dates from '../../../assets/SVG/Dates.svg';
 
 export default function Birth() {
-  const [text, onChangeText] = React.useState('ДД/ММ/ГГ');
+  const [text, onChangeText] = React.useState('');
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.birth}>Дата рождения</Text>
       <View style={styles.change}>
         <Dates style={styles.pic} />
-        <TextInput onChangeText={onChangeText} value={text} />
+        <TextInput
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="ДД/ММ/ГГ"
+        />
       </View>
     </SafeAreaView>
   );
@@ -18,20 +22,25 @@ export default function Birth() {
 
 const styles = StyleSheet.create({
   birth: {
-    margin: 10,
-    fontSize: 18,
-    marginBottom: 2,
+    fontSize: 13,
+    fontWeight: '400',
+    lineHeight: 16,
+    marginBottom: 8,
+    letterSpacing: -0.08,
+    color: '#333333',
   },
-
+  container: {
+    marginBottom: 24,
+  },
   change: {
     borderColor: 'lightgrey',
-    borderWidth: 2,
-    borderRadius: 4,
-    margin: 10,
+    borderWidth: 1,
+    borderRadius: 8,
     flexDirection: 'row',
   },
 
   pic: {
     margin: 10,
+    marginTop: 13,
   },
 });

@@ -1,28 +1,27 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 const title = 'Войти';
 
-export default function Button() {
+export default function Button({signIn}) {
   return (
-    <View style={styles.button}>
-      <TouchableOpacity>
-        <CustomText textType="SFProDisplayBlack" style={styles.title}>
-          {title}
-        </CustomText>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity style={styles.button} onPress={signIn}>
+      <CustomText textType="SFProDisplayBlack" style={styles.title}>
+        {title}
+      </CustomText>
+    </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
-    margin: 19,
+    marginLeft: 16,
+    marginRight: 15,
     borderRadius: 16,
     height: 52,
-    marginTop: 50,
-    backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
+    marginTop: 40,
+    backgroundColor: colors.MAIN_THEME_PURPLE,
   },
 
   title: {

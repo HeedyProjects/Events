@@ -5,26 +5,47 @@ import Photo from '../../components/ImagePicker';
 
 export default function Notifications() {
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
-    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-      <Text style={styles.nots}>Уведомления</Text>
-      <Toggle style={styles.image} />
-      <Photo />
+    <View>
+      <View style={styles.container}>
+        <Text style={styles.nots}>Уведомления</Text>
+        <Toggle style={styles.image} />
+        <View style={styles.photo}>
+          <Photo />
+        </View>
+      </View>
+      <Text style={styles.textBut}>Загрузить фото</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  photo: {
+    position: 'absolute',
+    top: 100,
+    right: 15,
+  },
+  textBut: {
+    position: 'absolute',
+    top: 100,
+    left: 16,
+    fontWeight: 'bold',
+    fontSize: 19,
+  },
   nots: {
     fontWeight: 'bold',
     fontSize: 19,
     margin: 10,
     marginTop: 40,
-    marginLeft: 15,
+    marginLeft: 16,
   },
 
   image: {
     margin: 10,
     marginTop: 30,
+    marginRight: 15,
   },
 });

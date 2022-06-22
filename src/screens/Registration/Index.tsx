@@ -1,28 +1,30 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import Head from '../Registration/Head';
-import AddPhoto from '../Registration/AddPhoto';
-import Name from '../Registration/Name';
-import Birth from '../Registration/Birth';
-import Email from '../Registration/Email';
-import Password from '../Registration/Password';
-import PasswordAgain from '../Registration/PasswordAgain';
-import Button from '../Registration/Button';
+import {SafeAreaView, View, StyleSheet, ScrollView} from 'react-native';
+import Head from './Head';
+import AddPhoto from './AddPhoto';
+import Name from './Name';
+import Birth from './Birth';
+import Email from './Email';
+import Password from './Password';
+import PasswordAgain from './PasswordAgain';
+import Button from './Button';
 
-export default function SignIn() {
+export default function Registration() {
   return (
-    <View style={styles.container}>
-      <View>
-        <Head />
-        <AddPhoto />
-      </View>
-      <Name />
-      <Birth />
-      <Email />
-      <Password />
-      <PasswordAgain />
-      <Button />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View>
+          <Head />
+          <AddPhoto />
+        </View>
+        <Name />
+        <Birth />
+        <Email />
+        <Password />
+        <PasswordAgain />
+        <Button />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -30,11 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-  },
-
-  forgot: {
-    color: '#F8A53B',
-    margin: 10,
-    marginLeft: 200,
+    paddingLeft: 16,
+    paddingRight: 15,
   },
 });

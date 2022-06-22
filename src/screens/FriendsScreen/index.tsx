@@ -7,7 +7,6 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import InviteFriend from './components/InviteFriend';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Header from './components/Header';
 import SearchLine from './components/SearchLine';
 import NewRequestHeader from './components/NewRequstsHeader';
@@ -31,24 +30,23 @@ export default function Events() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.paddings}>
-        <KeyboardAwareScrollView>
-          <InviteFriend />
-          <Header />
+        <InviteFriend />
+        <Header />
 
-          <SearchLine />
+        <SearchLine />
 
-          <NewRequestHeader />
+        <NewRequestHeader />
 
-          <NewRequestItem />
-
-          <FlatList
-            data={data}
-            renderItem={renderItem}
-            nestedScrollEnabled={true}
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
-          />
-        </KeyboardAwareScrollView>
+        <NewRequestItem />
+      </View>
+      <View style={styles.list}>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          nestedScrollEnabled={true}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </SafeAreaView>
   );
@@ -57,13 +55,17 @@ export default function Events() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
-    // flex: 1,
+    flex: 1,
   },
   paddings: {
     paddingLeft: 16,
     paddingRight: 15,
     paddingTop: 26,
     backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
-    // flex: 1,
+  },
+  list: {
+    marginBottom: 390,
+    marginLeft: 16,
+    marginRight: 15,
   },
 });

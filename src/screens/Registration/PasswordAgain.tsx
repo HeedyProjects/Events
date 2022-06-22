@@ -4,14 +4,18 @@ import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
 
 export default function Email() {
-  const [text, onChangeText] = React.useState('example@com');
+  const [text, onChangeText] = React.useState('');
 
   return (
-    <SafeAreaView>
-      <Text style={styles.email}> Пароль повторно</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.email}>Пароль повторно</Text>
       <View style={styles.change}>
         <Password style={styles.pic} />
-        <TextInput onChangeText={onChangeText} value={text} />
+        <TextInput
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="**********"
+        />
         <Eye style={styles.eye} />
       </View>
     </SafeAreaView>
@@ -20,18 +24,20 @@ export default function Email() {
 
 const styles = StyleSheet.create({
   email: {
-    margin: 10,
-    fontSize: 18,
-    marginBottom: 2,
-    flexDirection: 'row',
-    marginHorizontal: 10,
+    fontSize: 13,
+    fontWeight: '400',
+    lineHeight: 16,
+    marginBottom: 8,
+    letterSpacing: -0.08,
+    color: '#333333',
   },
-
+  container: {
+    marginBottom: 24,
+  },
   change: {
     borderColor: 'lightgrey',
-    borderWidth: 2,
-    borderRadius: 4,
-    margin: 10,
+    borderWidth: 1,
+    borderRadius: 8,
     flexDirection: 'row',
   },
 
@@ -39,7 +45,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   eye: {
-    marginTop: 6,
-    marginHorizontal: 70,
+    position: 'absolute',
+    right: 13.99,
+    top: 11.99,
   },
 });

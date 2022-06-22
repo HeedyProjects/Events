@@ -8,6 +8,8 @@ interface IProps {
   marginBottom?: number;
   value?: any;
   children?: React.ReactNode;
+  backgroundColor: backgroundColor,
+  borderWidth: number,
 }
 export default function InputComponent({
   placeholder,
@@ -15,11 +17,16 @@ export default function InputComponent({
   onChangeText,
   placeholderTextColor,
   marginBottom,
+  backgroundColor,
+  borderWidth,
 }: IProps) {
   return (
     <View style={[styles.mainbox, {marginBottom: marginBottom}]}>
       <TextInput
-        style={styles.inputStyles}
+        style={[
+          styles.inputStyles,
+          {backgroundColor: backgroundColor, borderWidth: borderWidth},
+        ]}
         onChangeText={onChangeText}
         placeholder={placeholder}
         placeholderTextColor={placeholderTextColor}
@@ -48,8 +55,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
     marginLeft: 16,
     borderRadius: 8,
-    paddingLeft: 30,
-    backgroundColor: '#F5F5F5',
+    paddingLeft: 40,
     fontFamily: 'SFProText-regular',
     fontSize: 16,
   },

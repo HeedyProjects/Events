@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 // import database from '@react-native-firebase/database';
 import Backicon from '../../../assets/SVG/Backicon.svg';
+import Event from '../../../assets/SVG/Event.svg';
+import CalendarIcon from '../../../assets/SVG/CalendarIcon.svg';
 import {
   StyleSheet,
   SafeAreaView,
@@ -27,29 +29,61 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
           Добавить новое событие
         </CustomText>
       </View>
+      <View style={styles.blockWrapper}>
+        <CustomText style={styles.inputTitle} textType="SFProText-regular">
+          Название мероприятия
+        </CustomText>
+        <InputComponent
+          borderWidth={1}
+          backgroundColor={'#fff'}
+          placeholder={'Event'}
+          placeholderTextColor={'#A3A3A0'}
+          marginBottom={24}>
+          <View style={styles.svgWrapper}>
+            <Event />
+          </View>
+        </InputComponent>
+      </View>
+      <View style={styles.blockWrapper}>
+        <CustomText style={styles.inputTitle} textType="SFProText-regular">
+        Дата проведения
+        </CustomText>
+        <InputComponent
+          borderWidth={1}
+          backgroundColor={'#fff'}
+          placeholder={'ДД.ММ.ГГГГ'}
+          placeholderTextColor={'#A3A3A0'}
+          marginBottom={24}>
+          <View style={styles.svgWrapper}>
+            <CalendarIcon />
+          </View>
+        </InputComponent>
+      </View>
 
-      <InputComponent
-        placeholder={'Поиск'}
-        placeholderTextColor={'#A3A3A0'}
-        marginBottom={24}>
-        <View style={styles.svgWrapper}>
-          <SearchIcon />
-        </View>
-      </InputComponent>
+
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  blockWrapper: {
+    marginBottom: 24,
+  },
   eventsHeader: {
     marginLeft: 16,
     magrginTop: 55,
     flexDirection: 'row',
   },
+  inputTitle: {
+    fontSize: 13,
+    marginLeft: 20,
+    marginBottom: 6,
+  },
+
   //=====================================
   svgWrapper: {
     position: 'absolute',
-    left: 20,
+    left: 26,
   },
   container: {
     backgroundColor: '#fff',
@@ -66,7 +100,6 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     marginBottom: 18,
   },
- 
 });
 function ref(arg0: string) {
   throw new Error('Function not implemented.');

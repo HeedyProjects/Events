@@ -2,17 +2,15 @@ import React from 'react';
 import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
 import Dates from '../../../assets/SVG/Dates.svg';
 
-export default function Birth() {
-  const [text, onChangeText] = React.useState('');
-
+export default function Birth({setBirthDate, birthDate}) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.birth}>Дата рождения</Text>
       <View style={styles.change}>
         <Dates style={styles.pic} />
         <TextInput
-          onChangeText={onChangeText}
-          value={text}
+          onChangeText={setBirthDate}
+          value={birthDate}
           placeholder="ДД/ММ/ГГ"
         />
       </View>

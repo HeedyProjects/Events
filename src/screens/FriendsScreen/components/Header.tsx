@@ -15,6 +15,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   title: {
+    marginBottom: 16,
     fontWeight: '700',
     fontSize: 34,
     lineHeight: 40,

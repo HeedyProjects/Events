@@ -33,6 +33,13 @@ export const EVENT_DATA = [
     date: '21:00',
     status: false,
   },
+  {
+    id: 4,
+    title: 'Вечеринка «Назад в 90-е»',
+    time: '25.05.2022',
+    date: '21:00',
+    status: false,
+  },
 ];
 export default function EventComponent({item}: any) {
   return (
@@ -88,8 +95,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   eventItemWrapper: {
-    marginLeft: 16,
-    marginRight: 16,
     borderColor: '#E1E1E1',
     borderWidth: 1,
     borderRadius: 8,
@@ -99,5 +104,4 @@ const styles = StyleSheet.create({
     paddingBottom: 18,
     marginBottom: 16,
   },
-
 });

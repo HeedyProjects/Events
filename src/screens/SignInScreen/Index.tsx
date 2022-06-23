@@ -23,7 +23,7 @@ export default function SignIn() {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log('User account created & signed in!');
+        console.log('User signed in!');
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {

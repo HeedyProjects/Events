@@ -2,17 +2,15 @@ import React from 'react';
 import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
 import User from '../../../assets/SVG/User.svg';
 
-export default function Name() {
-  const [text, onChangeText] = React.useState('');
-
+export default function Name({name, setName}) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.name}>Имя Фамилия</Text>
       <View style={styles.change}>
         <User style={styles.pic} />
         <TextInput
-          onChangeText={onChangeText}
-          value={text}
+          onChangeText={setName}
+          value={name}
           placeholder="Иван Иванов"
         />
       </View>

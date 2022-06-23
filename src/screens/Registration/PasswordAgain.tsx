@@ -3,18 +3,17 @@ import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
 import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
 
-export default function Email() {
-  const [text, onChangeText] = React.useState('');
-
+export default function Email({setPasswordAgain, passwordAgain}) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.email}>Пароль повторно</Text>
       <View style={styles.change}>
         <Password style={styles.pic} />
         <TextInput
-          onChangeText={onChangeText}
-          value={text}
+          onChangeText={setPasswordAgain}
+          value={passwordAgain}
           placeholder="**********"
+          secureTextEntry
         />
         <Eye style={styles.eye} />
       </View>

@@ -8,13 +8,12 @@ import {
 } from 'react-native';
 import InviteFriend from './components/InviteFriend';
 import Header from './components/Header';
-import SearchLine from './components/SearchLine';
 import NewRequestHeader from './components/NewRequstsHeader';
 import NewRequestItem from './components/NewRequestItem';
 import Item from './components/FlatListItem';
 import {useSelector} from 'react-redux';
 import colors from '../../utils/colors';
-
+import InputComponent from '../../components/InputComponent';
 interface friendType {
   item: {
     photo: ImageSourcePropType;
@@ -33,7 +32,11 @@ export default function Events() {
         <InviteFriend />
         <Header />
 
-        <SearchLine />
+        <InputComponent
+          placeholder={'Поиск'}
+          placeholderTextColor={'#A3A3A0'}
+          marginBottom={24}
+        />
 
         <NewRequestHeader />
 

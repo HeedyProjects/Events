@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import Backicon from '../../../assets/SVG/Backicon.svg';
 import Event from '../../../assets/SVG/Event.svg';
 import CalendarIcon from '../../../assets/SVG/CalendarIcon.svg';
+import ArrowDown from '../../../assets/SVG/ArrowDown.svg';
 import {
   StyleSheet,
   SafeAreaView,
@@ -41,6 +42,7 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
           marginBottom={24}>
           <View style={styles.svgWrapper}>
             <Event />
+            
           </View>
         </InputComponent>
       </View>
@@ -57,6 +59,7 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
           <View style={styles.svgWrapper}>
             <CalendarIcon />
           </View>
+          <ArrowDown />
         </InputComponent>
       </View>
 

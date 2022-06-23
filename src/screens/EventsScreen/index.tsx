@@ -48,6 +48,7 @@ export default function Events({navigation}: {navigation: any}) {
       </CustomText>
 
       <InputComponent
+        backgroundColor={'#f5f5f5'}
         placeholder={'Поиск'}
         placeholderTextColor={'#A3A3A0'}
         marginBottom={24}>

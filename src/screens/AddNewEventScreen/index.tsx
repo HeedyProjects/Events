@@ -4,6 +4,10 @@ import Backicon from '../../../assets/SVG/Backicon.svg';
 import Event from '../../../assets/SVG/Event.svg';
 import CalendarIcon from '../../../assets/SVG/CalendarIcon.svg';
 import ArrowDown from '../../../assets/SVG/ArrowDown.svg';
+import GeoIcon from '../../../assets/SVG/GeoIcon.svg';
+import FriendsIcon from '../../../assets/SVG/FriendsIcon.svg';
+import ClockIcon from '../../../assets/SVG/ClockIcon.svg';
+import GeoArrowIcon from '../../../assets/SVG/GeoArrowIcon.svg';
 import {
   StyleSheet,
   SafeAreaView,
@@ -18,6 +22,76 @@ import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 // import Eventcomponent from '../EventsScreen/components/EventComponent';
 // import {EVENT_DATA} from '../EventsScreen/components/EventComponent';
 
+const addEventData = [
+  {
+    id: 1,
+    title: 'Название мероприятия',
+    placeHolder: 'Event',
+    icon: <Event />,
+    rightIcon: null,
+    onChangeText: () => {
+      console.log('ONPRESS_1');
+    },
+  },
+  {
+    id: 2,
+    title: 'Дата проведения',
+    placeHolder: 'ДД.ММ.ГГГГ',
+    icon: <CalendarIcon />,
+    rightIcon: <ArrowDown />,
+    onChangeText: () => {
+      console.log('ONPRESS_2');
+    },
+  },
+  {
+    id: 3,
+    title: 'Время проведения',
+    placeHolder: 'ЧЧ:ММ',
+    icon: <ClockIcon />,
+    rightIcon: <ArrowDown />,
+    onChangeText: () => {
+      console.log('ONPRESS_3');
+    },
+  },
+  {
+    id: 4,
+    title: 'Место проведения',
+    placeHolder: 'г. Москва',
+    icon: <GeoIcon />,
+    rightIcon: <GeoArrowIcon />,
+    onChangeText: () => {
+      console.log('ONPRESS_4');
+    },
+  },
+  {
+    id: 5,
+    title: 'Друзья',
+    placeHolder: 'Кто пойдет с вами?',
+    icon: <FriendsIcon />,
+    rightIcon: <ArrowDown />,
+    onChangeText: () => {
+      console.log('ONPRESS_5');
+    },
+  },
+];
+
+const RenderItem = ({item}: {item: any}) => (
+  <View style={styles.blockWrapper}>
+    <CustomText style={styles.inputTitle} textType="SFProText-regular">
+      {item.title}
+    </CustomText>
+    <InputComponent
+      borderWidth={1}
+      backgroundColor={'#fff'}
+      placeholder={item.placeHolder}
+      placeholderTextColor={'#A3A3A0'}
+      marginBottom={24}>
+      <View style={styles.svgWrapper}>{item.icon}</View>
+      <View style={styles.arrowWrapper}>{item.rightIcon}</View>
+    </InputComponent>
+  </View>
+);
+
 export default function AddNewEventScreen({navigation}: {navigation: any}) {
   return (
     <SafeAreaView style={styles.container}>
@@ -30,47 +104,24 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
           Добавить новое событие
         </CustomText>
       </View>
-      <View style={styles.blockWrapper}>
-        <CustomText style={styles.inputTitle} textType="SFProText-regular">
-          Название мероприятия
-        </CustomText>
-        <InputComponent
-          borderWidth={1}
-          backgroundColor={'#fff'}
-          placeholder={'Event'}
-          placeholderTextColor={'#A3A3A0'}
-          marginBottom={24}>
-          <View style={styles.svgWrapper}>
-            <Event />
-            
-          </View>
-        </InputComponent>
-      </View>
-      <View style={styles.blockWrapper}>
-        <CustomText style={styles.inputTitle} textType="SFProText-regular">
-        Дата проведения
-        </CustomText>
-        <InputComponent
-          borderWidth={1}
-          backgroundColor={'#fff'}
-          placeholder={'ДД.ММ.ГГГГ'}
-          placeholderTextColor={'#A3A3A0'}
-          marginBottom={24}>
-          <View style={styles.svgWrapper}>
-            <CalendarIcon />
-          </View>
-          <ArrowDown />
-        </InputComponent>
-      </View>
-
-
+      <FlatList
+        nestedScrollEnabled={true}
+        data={addEventData}
+        renderItem={RenderItem}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   blockWrapper: {
-    marginBottom: 24,
+    marginBottom: 20,
+  },
+  arrowWrapper: {
+    position: 'absolute',
+    right: 35,
   },
   eventsHeader: {
     marginLeft: 16,

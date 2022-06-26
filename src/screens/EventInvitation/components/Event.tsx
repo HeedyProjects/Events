@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 16,
     marginBottom: 8,
-    letterSpacing: -0.08,
     color: '#333333',
   },
 });

@@ -47,8 +47,10 @@ export default function Events({navigation}: {navigation: any}) {
       </CustomText>
 
       <InputComponent
+        backgroundColor={'#f5f5f5'}
         placeholder={'Поиск'}
         placeholderTextColor={'#A3A3A0'}
+<<<<<<< HEAD
         marginBottom={24}
       />
       <FlatList
@@ -58,6 +60,22 @@ export default function Events({navigation}: {navigation: any}) {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       />
+=======
+        marginBottom={24}>
+        <View style={styles.svgWrapper}>
+          <SearchIcon />
+        </View>
+      </InputComponent>
+      <TouchableOpacity onPress={() => navigation.navigate('EventInvitation')}>
+        <FlatList
+          nestedScrollEnabled={true}
+          data={EVENT_DATA}
+          renderItem={Eventcomponent}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
+      </TouchableOpacity>
+>>>>>>> origin/dmitriy/EventScreen
       <TouchableOpacity
         style={styles.newEventButton}
         onPress={() => navigation.navigate('AddNewEventScreen')}>

@@ -9,11 +9,19 @@ interface IProps {
   marginBottom?: number;
   value?: any;
   children?: React.ReactNode;
+  backgroundColor: backgroundColor,
+  borderWidth: number,
 }
 export default function InputComponent({
   placeholder,
   onChangeText,
   placeholderTextColor,
+<<<<<<< HEAD
+=======
+  marginBottom,
+  backgroundColor,
+  borderWidth,
+>>>>>>> origin/dmitriy/EventScreen
 }: IProps) {
   return (
     <View>
@@ -21,7 +29,10 @@ export default function InputComponent({
         <SearchIcon />
       </View>
       <TextInput
-        style={styles.inputStyles}
+        style={[
+          styles.inputStyles,
+          {backgroundColor: backgroundColor, borderWidth: borderWidth},
+        ]}
         onChangeText={onChangeText}
         placeholder={placeholder}
         placeholderTextColor={placeholderTextColor}
@@ -34,7 +45,10 @@ const styles = StyleSheet.create({
   inputStyles: {
     borderRadius: 8,
     paddingLeft: 40,
+<<<<<<< HEAD
     backgroundColor: '#F5F5F5',
+=======
+>>>>>>> origin/dmitriy/EventScreen
     fontFamily: 'SFProText-regular',
     fontSize: 16,
     marginBottom: 24,

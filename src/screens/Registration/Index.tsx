@@ -8,11 +8,8 @@ import Email from './Email';
 import Password from './Password';
 import PasswordAgain from './PasswordAgain';
 import Button from './Button';
-<<<<<<< HEAD
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
-=======
->>>>>>> origin/dmitriy/EventScreen
 
 export default function Registration() {
   const [email, setEmail] = useState('');

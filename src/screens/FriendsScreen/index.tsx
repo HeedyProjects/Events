@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   SafeAreaView,
@@ -14,6 +14,7 @@ import Item from './components/FlatListItem';
 import {useSelector} from 'react-redux';
 import colors from '../../utils/colors';
 import InputComponent from '../../components/InputComponent';
+import database from '@react-native-firebase/database';
 interface friendType {
   item: {
     photo: ImageSourcePropType;
@@ -25,6 +26,16 @@ interface friendType {
 export default function Events() {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
   const data = useSelector(state => state.friends.friends);
+  async function userData() {
+    const dataBaseRef = await database().ref('/Users');
+    const data1 = await dataBaseRef.once('value');
+    const userList = data1.val();
+    return console.log('WWWWWWWWWW', userList);
+  }
+
+  useEffect(() => {
+    userData();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,9 +44,11 @@ export default function Events() {
         <Header />
 
         <InputComponent
+          backgroundColor={'#f5f5f5'}
           placeholder={'Поиск'}
           placeholderTextColor={'#A3A3A0'}
           marginBottom={24}
+          borderWidth={0}
         />
 
         <NewRequestHeader />

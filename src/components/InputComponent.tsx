@@ -9,19 +9,16 @@ interface IProps {
   marginBottom?: number;
   value?: any;
   children?: React.ReactNode;
-  backgroundColor: backgroundColor,
-  borderWidth: number,
+  backgroundColor: string;
+  borderWidth: number;
 }
 export default function InputComponent({
   placeholder,
   onChangeText,
   placeholderTextColor,
-<<<<<<< HEAD
-=======
-  marginBottom,
+  // marginBottom,
   backgroundColor,
   borderWidth,
->>>>>>> origin/dmitriy/EventScreen
 }: IProps) {
   return (
     <View>
@@ -45,10 +42,7 @@ const styles = StyleSheet.create({
   inputStyles: {
     borderRadius: 8,
     paddingLeft: 40,
-<<<<<<< HEAD
     backgroundColor: '#F5F5F5',
-=======
->>>>>>> origin/dmitriy/EventScreen
     fontFamily: 'SFProText-regular',
     fontSize: 16,
     marginBottom: 24,

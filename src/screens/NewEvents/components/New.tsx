@@ -6,7 +6,6 @@ import Flower from '../../../../assets/SVG/Flower.svg';
 import Bell from '../../../../assets/SVG/Bell.svg';
 const RequestData = {
   name: 'Вечеринка "Only Jazz',
-  photo: require('../../../../assets/profileIcons/girl2.jpg'),
   time: '20:30',
 };
 

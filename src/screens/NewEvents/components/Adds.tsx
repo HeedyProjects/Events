@@ -6,7 +6,6 @@ import OrangeBell from '../../../../assets/SVG/Orangebell.svg';
 import React from 'react';
 const RequestData = {
   name: 'Вечеринка "Мы',
-  photo: require('../../../../assets/profileIcons/girl2.jpg'),
   time: '20:30',
 };
 

@@ -23,14 +23,14 @@ export default function Link() {
 const styles = StyleSheet.create({
   title: {
     marginHorizontal: 20,
-    marginTop: 350,
+    marginTop: 390,
     fontSize: 15,
     color: colors.MAIN_THEME_GRAY,
   },
 
   link: {
     marginHorizontal: 20,
-    marginTop: 350,
+    marginTop: 390,
     fontSize: 15,
     color: colors.MAIN_THEME_PURPLE,
   },

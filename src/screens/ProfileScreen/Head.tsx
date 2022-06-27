@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     paddingRight: 9,
     flexDirection: 'row',
     marginRight: 4,
-    marginTop: 16,
+    marginTop: 34,
     alignSelf: 'flex-end',
   },
 });

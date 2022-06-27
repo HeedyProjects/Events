@@ -93,6 +93,7 @@ export default function NewEvents({navigation}: {navigation: any}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
 
   newevs: {

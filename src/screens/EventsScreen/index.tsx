@@ -41,7 +41,9 @@ export default function Events({navigation}: {navigation: any}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bellIconWrapper}>
-        <BellIcon />
+        <TouchableOpacity onPress={() => navigation.navigate('NewEvents')}>
+          <BellIcon />
+        </TouchableOpacity>
       </View>
       <CustomText style={styles.text} textType="SFProDisplayBold">
         События

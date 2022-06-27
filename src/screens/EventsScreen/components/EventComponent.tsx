@@ -99,5 +99,4 @@ const styles = StyleSheet.create({
     paddingBottom: 18,
     marginBottom: 16,
   },
-
 });

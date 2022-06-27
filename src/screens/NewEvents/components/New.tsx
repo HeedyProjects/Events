@@ -1,43 +1,69 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import EventsTabIcon from '../../../../assets/SVG/eventsTabIcon.svg';
+import {View, StyleSheet} from 'react-native';
+import CustomText from '../../../components/CustomText';
+import colors from '../../../utils/colors';
+import Flower from '../../../../assets/SVG/Flower.svg';
 import Bell from '../../../../assets/SVG/Bell.svg';
+const RequestData = {
+  name: 'Вечеринка "Only Jazz',
+  photo: require('../../../../assets/profileIcons/girl2.jpg'),
+  time: '20:30',
+};
 
 export default function New() {
   return (
     <View style={styles.container}>
-      <View
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginHorizontal: 10,
-          marginTop: 20,
-        }}>
-        <EventsTabIcon />
-        <Text style={styles.eves}>Вечеринка "Only Jazz"</Text>
-        <Bell />
+      <Flower style={styles.flower} />
+      <View style={styles.itemText}>
+        <CustomText textType="SFProTextRegular" style={styles.friendNameText}>
+          {RequestData.name}
+          <Bell style={styles.bell} />
+        </CustomText>
+        <View>
+          <CustomText
+            textType="SFProTextRegular"
+            style={styles.commonEventsText}>
+            {`28.05.2022, ${RequestData.time}`}
+          </CustomText>
+        </View>
       </View>
-      <Text style={styles.date}>28.05.2022, 20:30</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: 'row',
   },
-  eves: {
-    fontSize: 15,
-    marginBottom: 20,
-    padding: 12,
+  itemText: {
+    marginTop: 8,
+    marginBottom: 8,
+    justifycontent: 'space - between',
   },
-
-  date: {
-    marginHorizontal: 10,
-    marginLeft: 20,
-    color: 'grey',
-    padding: 8,
-    marginTop: -18,
+  bell: {
+    marginTop: 18,
+    marginRight: 7,
+    marginLeft: 60,
+  },
+  friendNameText: {
+    fontWeight: '500',
+    fontSize: 17,
+    lineHeight: 24,
+    letterSpacing: -0.41,
+    margin: 10,
+    color: colors.FRIEND_NAME_TEXT,
+  },
+  commonEventsText: {
+    fontWeight: '400',
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: -0.32,
+    color: colors.MAIN_THEME_GRAY,
+    margin: 10,
+    marginTop: -5,
+  },
+  flower: {
+    marginTop: 18,
+    marginLeft: 12,
   },
 });

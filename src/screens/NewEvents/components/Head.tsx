@@ -1,27 +1,27 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import BackIcon from '../../../../assets/SVG/Backicon.svg';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import IconLeft from '../../../../assets/SVG/LeftAccessory.svg';
 
 export default function Head() {
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-      <BackIcon style={styles.back} />
+      <IconLeft style={styles.image} />
       <Text style={styles.notifications}>Уведомления</Text>
     </View>
   );
 }
 const styles = StyleSheet.create({
+  image: {
+    marginLeft: 10,
+    marginTop: 60,
+  },
+
   notifications: {
     fontSize: 19,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginRight: 140,
-    marginTop: 90,
-  },
-  back: {
-    margin: 10,
-    marginTop: 90,
-    marginLeft: 10,
+    marginRight: 150,
+    marginTop: 60,
   },
 });

@@ -1,68 +1,54 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import CustomText from '../../../components/CustomText';
-import colors from '../../../utils/colors';
-import Flower from '../../../../assets/SVG/Flower.svg';
+import {View, StyleSheet, Text} from 'react-native';
 import Bell from '../../../../assets/SVG/Bell.svg';
-const RequestData = {
-  name: 'Вечеринка "Only Jazz',
-  time: '20:30',
-};
+import Flower from '../../../../assets/SVG/Flower.svg';
 
 export default function New() {
   return (
     <View style={styles.container}>
-      <Flower style={styles.flower} />
-      <View style={styles.itemText}>
-        <CustomText textType="SFProTextRegular" style={styles.friendNameText}>
-          {RequestData.name}
-          <Bell style={styles.bell} />
-        </CustomText>
-        <View>
-          <CustomText
-            textType="SFProTextRegular"
-            style={styles.commonEventsText}>
-            {`28.05.2022, ${RequestData.time}`}
-          </CustomText>
-        </View>
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginHorizontal: 10,
+          marginTop: -30,
+        }}>
+        <Flower style={styles.title} />
+        <Text style={styles.eves}>Вечеринка "Only Jazz"</Text>
+        <Bell style={styles.bell} />
       </View>
+      <Text style={styles.date}>28.05.2022, 20:30</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flex: 1,
   },
-  itemText: {
-    marginTop: 8,
-    marginBottom: 8,
-    justifycontent: 'space - between',
+
+  eves: {
+    fontSize: 17,
+    marginBottom: 70,
+    padding: 12,
+    marginTop: 30,
+    paddingBottom: 20,
+    fontWeight: 'bold',
+    marginRight: 80,
+  },
+
+  date: {
+    marginHorizontal: 10,
+    marginLeft: 35,
+    color: 'grey',
+    padding: 8,
+    marginTop: -70,
+  },
+  title: {
+    marginTop: 40,
   },
   bell: {
-    marginTop: 18,
-    marginRight: 7,
-    marginLeft: 60,
-  },
-  friendNameText: {
-    fontWeight: '500',
-    fontSize: 17,
-    lineHeight: 24,
-    letterSpacing: -0.41,
-    margin: 10,
-    color: colors.FRIEND_NAME_TEXT,
-  },
-  commonEventsText: {
-    fontWeight: '400',
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: -0.32,
-    color: colors.MAIN_THEME_GRAY,
-    margin: 10,
-    marginTop: -5,
-  },
-  flower: {
-    marginTop: 18,
-    marginLeft: 12,
+    marginTop: 40,
   },
 });

@@ -1,70 +1,62 @@
-import {View, StyleSheet} from 'react-native';
-import CustomText from '../../../components/CustomText';
-import colors from '../../../utils/colors';
+import React from 'react';
+import {View, StyleSheet, Text} from 'react-native';
 import Flower from '../../../../assets/SVG/Flower.svg';
 import OrangeBell from '../../../../assets/SVG/Orangebell.svg';
-import React from 'react';
-const RequestData = {
-  name: 'Вечеринка "Мы',
-  time: '20:30',
-};
 
-export default function New() {
+export default function Adds() {
   return (
     <View style={styles.container}>
-      <Flower style={styles.flower} />
-      <View style={styles.itemText}>
-        <CustomText textType="SFProTextRegular" style={styles.friendNameText}>
-          {RequestData.name}
-          <OrangeBell style={styles.bell} />
-        </CustomText>
-        <View>
-          <CustomText
-            textType="SFProTextRegular"
-            style={styles.commonEventsText}>
-            {`29.05.2022, ${RequestData.time}`}
-          </CustomText>
-        </View>
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginHorizontal: 10,
+          marginTop: -20,
+        }}>
+        <Flower style={styles.title} />
+        <Text style={styles.eves}>Вечеринка "Мы"</Text>
+        <OrangeBell style={styles.bell} />
       </View>
+      <Text style={styles.date}>29.05.2022, 19:00</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flex: 1,
   },
-  itemText: {
-    marginTop: 8,
-    marginBottom: 8,
+
+  newevs: {
+    fontWeight: 'bold',
+    fontSize: 17,
+    margin: 10,
+    marginTop: 30,
+    paddingBottom: 20,
+  },
+
+  eves: {
+    fontSize: 17,
+    marginBottom: 70,
+    padding: 12,
+    marginTop: 30,
+    paddingBottom: 20,
+    fontWeight: 'bold',
+    marginRight: 120,
+  },
+
+  date: {
+    marginHorizontal: 10,
+    marginLeft: 40,
+    color: 'grey',
+    padding: 8,
+    marginTop: -70,
+  },
+  title: {
+    marginTop: 40,
   },
   bell: {
-    marginTop: 18,
-    paddingLeft: 16,
-    paddingRight: 120,
-    marginLeft: 60,
-  },
-  friendNameText: {
-    fontWeight: '500',
-    fontSize: 17,
-    lineHeight: 24,
-    letterSpacing: -0.41,
-    margin: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: colors.FRIEND_NAME_TEXT,
-  },
-  commonEventsText: {
-    fontWeight: '400',
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: -0.32,
-    color: colors.MAIN_THEME_GRAY,
-    margin: 10,
-    marginTop: -5,
-  },
-  flower: {
-    marginTop: 18,
-    marginLeft: 12,
+    marginTop: 40,
   },
 });

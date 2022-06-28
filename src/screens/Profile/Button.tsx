@@ -15,10 +15,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 19,
     backgroundColor: '#5651D4',
-    marginTop: 200,
     width: 300,
     height: 48,
     borderRadius: 8,
+    marginTop: 40,
+    marginLeft: 40,
   },
 
   enter: {

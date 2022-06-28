@@ -6,7 +6,7 @@ import colors from '../../utils/colors';
 const name = 'Мария Георгиева';
 const bio = 'Фото и личные данные';
 
-export default function Info({navigation}: {navigation: any}) {
+export default function Info() {
   return (
     <View style={styles.container}>
       <View style={styles.page}>
@@ -24,9 +24,7 @@ export default function Info({navigation}: {navigation: any}) {
           </CustomText>
         </View>
 
-        <TouchableOpacity
-          style={styles.path}
-          onPress={() => navigation.navigate('EditProfile')}>
+        <TouchableOpacity style={styles.path}>
           <Path width={12} height={12} />
         </TouchableOpacity>
       </View>

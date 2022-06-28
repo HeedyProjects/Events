@@ -16,13 +16,15 @@ export default function Head() {
 const styles = StyleSheet.create({
   image: {
     margin: 10,
+    marginTop: 60,
   },
 
   pr: {
     fontSize: 19,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginRight: 120,
+    marginRight: 150,
     margin: 10,
+    marginTop: 60,
   },
 });

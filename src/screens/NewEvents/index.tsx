@@ -70,6 +70,8 @@ export default function NewEvents({navigation}: {navigation: any}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingLeft: 9,
+    paddingRight: 9,
   },
   newevs: {
     fontWeight: 'bold',

@@ -5,10 +5,10 @@ import Head from '../InviteScreen/Head';
 import Write from '../InviteScreen/Write';
 import Button from '../InviteScreen/Button';
 
-export default function InviteScreen() {
+export default function InviteScreen({navigation}: {navigation: any}) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Head />
       </TouchableOpacity>
 

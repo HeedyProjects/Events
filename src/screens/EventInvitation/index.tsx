@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux';
 import Header from '../EventInvitation/components/Header';
 import Item from '../FriendsScreen/components/FlatListItem';
 import FlatList from './components/FlatList';
+import Event from '../EventInvitation/components/Event';
 
 export default function EventInvitation({navigation}: {navigation: any}) {
   type NewType = friendType;
@@ -15,6 +16,7 @@ export default function EventInvitation({navigation}: {navigation: any}) {
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Header />
       </TouchableOpacity>
+      <Event />
       <View style={styles.list}>
         <FlatList
           data={data}

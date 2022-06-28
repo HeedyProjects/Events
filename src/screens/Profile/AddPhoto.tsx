@@ -7,7 +7,7 @@ export default function AddPhoto() {
     <View style={styles.photo}>
       <TouchableOpacity
         // eslint-disable-next-line react-native/no-inline-styles
-        style={{position: 'absolute', zIndex: 1, right: 80, top: -10}}>
+        style={{position: 'absolute', zIndex: 1, right: 110, top: -15}}>
         <Add style={styles.camera} />
       </TouchableOpacity>
       <Image
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   photo: {
     margin: 10,
     alignItems: 'center',
+    marginTop: 20,
   },
   image: {
     borderRadius: 8,

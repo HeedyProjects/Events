@@ -11,7 +11,12 @@ export default function Password() {
       <Text style={styles.pass}> Пароль</Text>
       <View style={styles.change}>
         <Emails style={styles.pic} />
-        <TextInput onChangeText={onChangeText} value={text} />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="example@com"
+        />
         <Eye style={styles.eye} />
       </View>
     </SafeAreaView>
@@ -33,14 +38,20 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 10,
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   pic: {
     margin: 10,
+    marginTop: 6,
   },
 
   eye: {
     marginTop: 6,
     marginHorizontal: 70,
+    marginRight: 10,
+  },
+  input: {
+    marginLeft: -120,
   },
 });

@@ -58,5 +58,7 @@ const styles = StyleSheet.create({
   },
   bell: {
     marginTop: 40,
+    marginLeft: -20,
+    paddingEnd: -5,
   },
 });

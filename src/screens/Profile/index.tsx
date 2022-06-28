@@ -1,15 +1,15 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import Email from '../EditProfile';
-import Name from '../EditProfile';
-import Birth from '../EditProfile';
-import Head from '../EditProfile';
-import But from '../EditProfile';
-import Password from '../EditProfile';
-import PasswordAgain from '../EditProfile';
-import AddPhoto from '../EditProfile';
+import Email from '../Profile/Email';
+import Name from '../Profile/Name';
+import Birth from '../Profile/Birth';
+import Head from '../Profile/Head';
+import But from '../Profile/Button';
+import Password from '../Profile/Password';
+import PasswordAgain from '../Profile/PasswordAgain';
+import AddPhoto from '../Profile/AddPhoto';
 
-export default function EditProfile() {
+export default function Profile() {
   return (
     <View style={styles.container}>
       <Head />
@@ -28,5 +28,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    paddingLeft: 9,
+    paddingRight: 9,
   },
 });

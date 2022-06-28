@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import Head from '../../screens/NewEvents/components/Head';
-import Button1 from '../../screens/NewEvents/components/Button';
-import New from '../../screens/NewEvents/components/New';
+import Head from './components/Head';
+import Button1 from './components/Button';
+import New from './components/New';
 import Adds from './components/Adds';
 
 export default function NewEvents({navigation}: {navigation: any}) {
@@ -22,7 +22,7 @@ export default function NewEvents({navigation}: {navigation: any}) {
           borderWidth: 1,
           marginLeft: 12,
           marginRight: 12,
-          margin: 20,
+          height: 150,
         }}>
         <New />
 
@@ -33,20 +33,8 @@ export default function NewEvents({navigation}: {navigation: any}) {
             marginHorizontal: 10,
             margin: 10,
           }}>
-          <Button1
-            text="Не пойду"
-            accent={true}
-            onPress={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
-          <Button1
-            text="Пойду"
-            accent={false}
-            onPress={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
+          <Button1 text="Не пойду" accent={true} />
+          <Button1 text="Пойду" />
         </View>
       </View>
       <View>
@@ -60,9 +48,10 @@ export default function NewEvents({navigation}: {navigation: any}) {
           borderWidth: 1,
           marginLeft: 12,
           marginRight: 12,
-          margin: 20,
+          height: 150,
         }}>
         <Adds />
+
         <View
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
@@ -70,20 +59,8 @@ export default function NewEvents({navigation}: {navigation: any}) {
             marginHorizontal: 10,
             margin: 10,
           }}>
-          <Button1
-            text="Не пойду"
-            accent={true}
-            onPress={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
-          <Button1
-            text="Пойду"
-            accent={false}
-            onPress={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
+          <Button1 text="Не пойду" accent={true} />
+          <Button1 text="Пойду" />
         </View>
       </View>
     </View>
@@ -93,14 +70,13 @@ export default function NewEvents({navigation}: {navigation: any}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    paddingLeft: 9,
+    paddingRight: 9,
   },
-
   newevs: {
     fontWeight: 'bold',
-    fontSize: 23,
-    margin: 10,
+    fontSize: 22,
+    margin: 20,
     marginTop: 30,
-    marginBottom: 40,
   },
 });

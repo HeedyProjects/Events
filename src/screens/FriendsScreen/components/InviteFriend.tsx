@@ -11,7 +11,9 @@ export default function InviteFriend() {
       <CustomText textType="SFProTextRegular" style={styles.inviteText}>
         {inviteBoxText}
       </CustomText>
-      <AddIcon />
+      <TouchableOpacity>
+        <AddIcon />
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 }

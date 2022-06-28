@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
+import Bell from '../../../../assets/SVG/Bell.svg';
 import Flower from '../../../../assets/SVG/Flower.svg';
-import OrangeBell from '../../../../assets/SVG/Orangebell.svg';
 
-export default function Adds() {
+export default function New() {
   return (
     <View style={styles.container}>
       <View
@@ -12,13 +12,19 @@ export default function Adds() {
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginHorizontal: 10,
-          marginTop: -20,
+          marginTop: 20,
+          borderColor: 'lightgrey',
+          borderRadius: 8,
+          borderWidth: 1,
+          marginLeft: 12,
+          marginRight: 12,
+          height: 100,
         }}>
         <Flower style={styles.title} />
-        <Text style={styles.eves}>Вечеринка "Мы"</Text>
-        <OrangeBell style={styles.bell} />
+        <Text style={styles.eves}>Выставка "Тайна Глубины"</Text>
+        <Bell style={styles.bell} />
       </View>
-      <Text style={styles.date}>29.05.2022, 19:00</Text>
+      <Text style={styles.date}>28.05.2022, 20:30</Text>
     </View>
   );
 }
@@ -28,37 +34,32 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  newevs: {
-    fontWeight: 'bold',
-    fontSize: 17,
-    margin: 10,
-    marginTop: 30,
-    paddingBottom: 20,
-  },
-
   eves: {
     fontSize: 17,
     marginBottom: 70,
     padding: 12,
-    marginTop: 30,
+    marginTop: 15,
     paddingBottom: 20,
     fontWeight: 'bold',
-    marginRight: 120,
+    marginLeft: -190,
   },
 
   date: {
     marginHorizontal: 10,
-    marginLeft: 40,
+    marginLeft: 60,
     color: 'grey',
     padding: 8,
-    marginTop: -70,
+    marginTop: -50,
+    margin: 20,
   },
   title: {
-    marginTop: 40,
+    marginTop: 25,
+    marginLeft: 19,
+    margin: 20,
   },
   bell: {
-    marginTop: 40,
-    marginLeft: -20,
-    paddingEnd: -5,
+    marginTop: 25,
+    marginLeft: -150,
+    margin: 18,
   },
 });

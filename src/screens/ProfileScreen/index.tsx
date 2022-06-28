@@ -15,9 +15,7 @@ export default function Events() {
       <CustomText textType="SFProDisplayBlack" style={styles.title}>
         {title}
       </CustomText>
-
       <Info />
-
       <Notifications />
       <Link />
     </View>

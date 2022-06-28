@@ -23,7 +23,6 @@ function ScreenStackNavigator() {
           component={EntryStackNavigator}
         /> */}
         <Stack.Screen name="RootTabNavigator" component={RootTabNavigator} />
-
         <Stack.Screen name="AddNewEventScreen" component={AddNewEventScreen} />
         <Stack.Screen name="EventInvitation" component={EventInvitation} />
         <Stack.Screen name="NewEvents" component={NewEvents} />

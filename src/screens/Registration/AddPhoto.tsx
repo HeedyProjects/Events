@@ -1,12 +1,50 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 import Camera from '../../../assets/SVG/Camera.svg';
-
+import ImagePicker from 'react-native-image-crop-picker';
 export default function AddPhoto() {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [image, setImage] = useState('');
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  // ------galery access-------
+  const choosePhotoFromLibrary = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 300,
+      cropping: true,
+    })
+      .then(image => setImage(image.path))
+      .then(() => setModalVisible(false));
+    console.log('image', image);
+  };
   return (
     <View style={styles.photo}>
-      <Camera style={styles.pic} />
-      <Text style={styles.text}>Добавить фото</Text>
+      {image ? (
+        <ImageBackground
+          source={{
+            uri: image,
+          }}
+          style={{
+            height: 70,
+            width: 70,
+          }}
+        />
+      ) : (
+        <Camera style={styles.pic} />
+      )}
+
+      <TouchableOpacity onPress={choosePhotoFromLibrary}>
+        <Text style={styles.text}>Добавить фото</Text>
+      </TouchableOpacity>
     </View>
   );
 }

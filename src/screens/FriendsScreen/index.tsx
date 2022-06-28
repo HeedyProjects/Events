@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   ImageSourcePropType,
+  TouchableOpacity,
 } from 'react-native';
 import InviteFriend from './components/InviteFriend';
 import Header from './components/Header';
@@ -30,7 +31,9 @@ export default function Events() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.paddings}>
-        <InviteFriend />
+        <TouchableOpacity>
+          <InviteFriend />
+        </TouchableOpacity>
         <Header />
 
         <SearchLine />

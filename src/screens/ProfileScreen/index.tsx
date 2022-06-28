@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 import Head from '../ProfileScreen/Head';

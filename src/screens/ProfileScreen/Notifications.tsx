@@ -13,7 +13,6 @@ export default function Notifications() {
           <Photo />
         </View>
       </View>
-      <Text style={styles.textBut}>Загрузить фото</Text>
     </View>
   );
 }

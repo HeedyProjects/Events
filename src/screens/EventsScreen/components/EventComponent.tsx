@@ -1,9 +1,10 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import CustomText from '../../../components/CustomText';
 import Event from '../../../../assets/SVG/Event.svg';
 import GreyBell from '../../../../assets/SVG/GreyBell.svg';
 import RingingBell from '../../../../assets/SVG/RingingBell.svg';
+
 export const EVENT_DATA = [
   {
     id: 1,

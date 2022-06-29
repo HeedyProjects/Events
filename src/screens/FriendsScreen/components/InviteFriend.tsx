@@ -1,18 +1,25 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import CustomText from '../../../components/CustomText';
 import AddIcon from '../../../../assets/SVG/addIcon.svg';
 import colors from '../../../utils/colors';
 const inviteBoxText = 'Пригласить друга';
 
 export default function InviteFriend() {
+  const navigation = useNavigation();
   return (
     <TouchableOpacity style={styles.inviteBox}>
-      <CustomText textType="SFProTextRegular" style={styles.inviteText}>
-        {inviteBoxText}
-      </CustomText>
-      <TouchableOpacity>
-        <AddIcon />
+      <TouchableOpacity
+        style={styles.inviteBox}
+        onPress={() => navigation.navigate('InviteScreen')}>
+        <CustomText textType="SFProTextRegular" style={styles.inviteText}>
+          {inviteBoxText}
+        </CustomText>
+
+        <TouchableOpacity>
+          <AddIcon />
+        </TouchableOpacity>
       </TouchableOpacity>
     </TouchableOpacity>
   );

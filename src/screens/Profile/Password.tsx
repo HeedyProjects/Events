@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
-import Emails from '../../../assets/SVG/Emails.svg';
+import Passwords from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
 
 export default function Password() {
@@ -10,7 +10,7 @@ export default function Password() {
     <SafeAreaView>
       <Text style={styles.pass}> Пароль</Text>
       <View style={styles.change}>
-        <Emails style={styles.pic} />
+        <Passwords style={styles.pic} />
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}

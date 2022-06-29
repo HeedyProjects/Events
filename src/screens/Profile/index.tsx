@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Email from '../Profile/Email';
 import Name from '../Profile/Name';
 import Birth from '../Profile/Birth';
@@ -9,12 +9,11 @@ import Password from '../Profile/Password';
 import PasswordAgain from '../Profile/PasswordAgain';
 import AddPhoto from '../Profile/AddPhoto';
 
-export default function Profile({navigation}: {navigation: any}) {
+export default function Profile() {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Head />
-      </TouchableOpacity>
+      <Head />
+
       <AddPhoto />
       <Name />
       <Birth />

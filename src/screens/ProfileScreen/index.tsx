@@ -8,16 +8,16 @@ import Notifications from '../ProfileScreen/Notifications';
 import Link from '../ProfileScreen/Link';
 const title = 'Профиль';
 
-export default function ProfileScreen({navigation}: {navigation: any}) {
+export default function ProfileScreen() {
   return (
     <View style={styles.container}>
       <Head />
       <CustomText textType="SFProDisplayBlack" style={styles.title}>
         {title}
       </CustomText>
-      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-        <Info />
-      </TouchableOpacity>
+
+      <Info />
+
       <Notifications />
 
       <Link />

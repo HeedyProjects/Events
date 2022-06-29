@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 import Head from '../ProfileScreen/Head';
@@ -8,15 +8,18 @@ import Notifications from '../ProfileScreen/Notifications';
 import Link from '../ProfileScreen/Link';
 const title = 'Профиль';
 
-export default function Events() {
+export default function ProfileScreen() {
   return (
     <View style={styles.container}>
       <Head />
       <CustomText textType="SFProDisplayBlack" style={styles.title}>
         {title}
       </CustomText>
+
       <Info />
+
       <Notifications />
+
       <Link />
     </View>
   );

@@ -14,8 +14,10 @@ import BellIcon from '../../../assets/SVG/BellIcon.svg';
 import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 import Eventcomponent from './components/EventComponent';
 import {EVENT_DATA} from './components/EventComponent';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Events({navigation}: {navigation: any}) {
+export default function Events() {
+  const navigation = useNavigation();
   useEffect(
     () =>
       async function eventsData() {
@@ -58,15 +60,15 @@ export default function Events({navigation}: {navigation: any}) {
           <SearchIcon />
         </View>
       </InputComponent>
-      <TouchableOpacity onPress={() => navigation.navigate('EventInvitation')}>
-        <FlatList
-          nestedScrollEnabled={true}
-          data={EVENT_DATA}
-          renderItem={Eventcomponent}
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-        />
-      </TouchableOpacity>
+
+      <FlatList
+        nestedScrollEnabled={true}
+        data={EVENT_DATA}
+        renderItem={Eventcomponent}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      />
+
       <TouchableOpacity
         style={styles.newEventButton}
         onPress={() => navigation.navigate('AddNewEventScreen')}>

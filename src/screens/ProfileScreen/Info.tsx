@@ -3,10 +3,12 @@ import {StyleSheet, Image, TouchableOpacity, View} from 'react-native';
 import Path from '../../../assets/SVG/Path.svg';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
+import {useNavigation} from '@react-navigation/native';
 const name = 'Мария Георгиева';
 const bio = 'Фото и личные данные';
 
 export default function Info() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.page}>
@@ -23,8 +25,9 @@ export default function Info() {
             {bio}
           </CustomText>
         </View>
-
-        <TouchableOpacity style={styles.path}>
+        <TouchableOpacity
+          style={styles.path}
+          onPress={() => navigation.navigate('Profile')}>
           <Path width={12} height={12} />
         </TouchableOpacity>
       </View>

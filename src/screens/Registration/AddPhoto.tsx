@@ -33,6 +33,7 @@ export default function AddPhoto() {
           source={{
             uri: image,
           }}
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             height: 70,
             width: 70,
@@ -74,3 +75,6 @@ const styles = StyleSheet.create({
 
   pic: {},
 });
+// function ref(arg0: string) {
+//   throw new Error('Function not implemented.');
+// }

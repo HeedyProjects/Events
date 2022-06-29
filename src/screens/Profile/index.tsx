@@ -13,6 +13,7 @@ export default function Profile() {
   return (
     <View style={styles.container}>
       <Head />
+
       <AddPhoto />
       <Name />
       <Birth />

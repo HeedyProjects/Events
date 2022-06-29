@@ -1,12 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import ArrowBack from '../../../assets/SVG/Backicon.svg';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Head() {
+  const navigation = useNavigation();
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-      <ArrowBack style={styles.image} />
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <ArrowBack style={styles.image} />
+      </TouchableOpacity>
       <Text style={styles.invite}>Пригласить друга</Text>
     </View>
   );

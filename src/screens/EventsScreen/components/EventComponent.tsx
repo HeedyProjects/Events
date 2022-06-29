@@ -4,6 +4,7 @@ import CustomText from '../../../components/CustomText';
 import Event from '../../../../assets/SVG/Event.svg';
 import GreyBell from '../../../../assets/SVG/GreyBell.svg';
 import RingingBell from '../../../../assets/SVG/RingingBell.svg';
+
 export const EVENT_DATA = [
   {
     id: 1,
@@ -40,6 +41,7 @@ export default function EventComponent({item}: any) {
       <View style={styles.upperwrapper}>
         <View style={styles.leftWrapper}>
           <Event />
+
           <CustomText style={styles.iventText} textType="SFProTextRegular">
             {item.title}
           </CustomText>

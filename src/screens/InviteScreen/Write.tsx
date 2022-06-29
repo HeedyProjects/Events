@@ -13,7 +13,7 @@ export default function Write() {
         <TextInput
           onChangeText={onChangeText}
           value={text}
-          placeholder="Введите текста приглашения"
+          placeholder="Введите текст приглашения"
         />
       </View>
     </SafeAreaView>

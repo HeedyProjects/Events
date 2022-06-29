@@ -1,50 +1,45 @@
-import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import Toggle from '../../../assets/SVG/Toggle.svg';
-import Photo from '../../components/ImagePicker';
+import React, {useState} from 'react';
+import {View, StyleSheet, Switch} from 'react-native';
+import CustomText from '../../components/CustomText';
+const title = 'Уведомления';
 
 export default function Notifications() {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
   return (
     <View>
-      <View style={styles.container}>
-        <Text style={styles.nots}>Уведомления</Text>
-        <Toggle style={styles.image} />
-        <View style={styles.photo}>
-          <Photo />
-        </View>
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginTop: 60,
+          marginRight: 3,
+          marginLeft: 18,
+        }}>
+        <CustomText textType="SFProDisplayBold" style={styles.title}>
+          {title}
+        </CustomText>
+        <Switch
+          style={styles.sw}
+          trackColor={{false: '#767577', true: '#81b0ff'}}
+          thumbColor={isEnabled ? '#fff' : '#f4f3f4'}
+          // ios_backgroundColor="#E1E1E1"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
+        />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  photo: {
-    position: 'absolute',
-    top: 100,
-    right: 15,
-  },
-  textBut: {
-    position: 'absolute',
-    top: 100,
-    left: 16,
-    fontWeight: 'bold',
+  title: {
     fontSize: 19,
+    alignSelf: 'center',
   },
-  nots: {
-    fontWeight: 'bold',
-    fontSize: 19,
-    margin: 10,
-    marginTop: 40,
-    marginLeft: 16,
-  },
-
-  image: {
-    margin: 10,
-    marginTop: 30,
-    marginRight: 15,
+  sw: {
+    marginRight: 20,
   },
 });

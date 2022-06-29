@@ -23,7 +23,6 @@ export default function Info() {
             {bio}
           </CustomText>
         </View>
-
         <TouchableOpacity style={styles.path}>
           <Path width={12} height={12} />
         </TouchableOpacity>

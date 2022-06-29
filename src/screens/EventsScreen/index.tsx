@@ -58,15 +58,15 @@ export default function Events({navigation}: {navigation: any}) {
           <SearchIcon />
         </View>
       </InputComponent>
-      <TouchableOpacity onPress={() => navigation.navigate('EventInvitation')}>
-        <FlatList
-          nestedScrollEnabled={true}
-          data={EVENT_DATA}
-          renderItem={Eventcomponent}
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-        />
-      </TouchableOpacity>
+
+      <FlatList
+        nestedScrollEnabled={true}
+        data={EVENT_DATA}
+        renderItem={Eventcomponent}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      />
+
       <TouchableOpacity
         style={styles.newEventButton}
         onPress={() => navigation.navigate('AddNewEventScreen')}>

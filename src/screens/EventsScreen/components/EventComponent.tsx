@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import CustomText from '../../../components/CustomText';
 import Event from '../../../../assets/SVG/Event.svg';
 import GreyBell from '../../../../assets/SVG/GreyBell.svg';
@@ -40,6 +40,7 @@ export default function EventComponent({item}: any) {
       <View style={styles.upperwrapper}>
         <View style={styles.leftWrapper}>
           <Event />
+
           <CustomText style={styles.iventText} textType="SFProTextRegular">
             {item.title}
           </CustomText>

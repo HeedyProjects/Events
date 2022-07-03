@@ -24,10 +24,11 @@ export default function Events() {
         const databaseRef = await database().ref('/Events');
         const data = await databaseRef.once('value');
         const eventsList = data.val();
-        console.log('YYYYYYY', eventsList);
+        return eventsList;
       },
     [],
   );
+  
 
   useEffect(
     () =>
@@ -55,7 +56,7 @@ export default function Events() {
         backgroundColor={'#f5f5f5'}
         placeholder={'Поиск'}
         placeholderTextColor={'#A3A3A0'}
-        marginBottom={24}>
+        marginBottom={24} borderWidth={1}>
         <View style={styles.svgWrapper}>
           <SearchIcon />
         </View>

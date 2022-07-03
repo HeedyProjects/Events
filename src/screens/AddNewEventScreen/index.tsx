@@ -18,8 +18,8 @@ import {
 } from 'react-native';
 import InputComponent from '../../components/InputComponent';
 import CustomText from '../../components/CustomText';
-import BellIcon from '../../../assets/SVG/BellIcon.svg';
-import SearchIcon from '../../../assets/SVG/searchIcon.svg';
+// import BellIcon from '../../../assets/SVG/BellIcon.svg';
+// import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 // import Eventcomponent from '../EventsScreen/components/EventComponent';
 // import {EVENT_DATA} from '../EventsScreen/components/EventComponent';
 

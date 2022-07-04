@@ -8,8 +8,8 @@ interface IProps {
   marginBottom?: number;
   value?: any;
   children?: React.ReactNode;
-  backgroundColor: backgroundColor,
-  borderWidth: number,
+  backgroundColor: backgroundColor;
+  borderWidth: number;
 }
 export default function InputComponent({
   placeholder,
@@ -23,6 +23,8 @@ export default function InputComponent({
   return (
     <View style={[styles.mainbox, {marginBottom: marginBottom}]}>
       <TextInput
+        underlineColorAndroid="transparent"
+        autoCapitalize="none"
         style={[
           styles.inputStyles,
           {backgroundColor: backgroundColor, borderWidth: borderWidth},

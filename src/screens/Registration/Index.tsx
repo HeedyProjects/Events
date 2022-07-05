@@ -10,6 +10,7 @@ import PasswordAgain from './PasswordAgain';
 import Button from './Button';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
+import DatePicker from 'react-native-date-picker';
 
 export default function Registration() {
   const [email, setEmail] = useState('');
@@ -19,6 +20,7 @@ export default function Registration() {
   const [birthDate, setBirthDate] = useState('');
   const [flag, setFlag] = useState(true);
   const [flagAgain, setFlagAgain] = useState(true);
+  const [date, setDate] = useState(new Date());
 
   const createNode = (uid: string | undefined) => {
     database()
@@ -49,6 +51,7 @@ export default function Registration() {
         console.error(error);
       });
   };
+  console.log(date);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -59,6 +62,7 @@ export default function Registration() {
         <Name name={name} setName={setName} />
         <Birth setBirthDate={setBirthDate} birthDate={birthDate} />
         <Email setEmail={setEmail} email={email} />
+
         <Password
           setPassword={setPassword}
           password={password}
@@ -71,6 +75,7 @@ export default function Registration() {
           setFlagAgain={setFlagAgain}
           flagAgain={flagAgain}
         />
+        <DatePicker date={date} onDateChange={setDate} mode={'date'} />
         <Button regAndSignIn={regAndSignIn} />
       </ScrollView>
     </SafeAreaView>

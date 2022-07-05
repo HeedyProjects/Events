@@ -1,9 +1,24 @@
 import React from 'react';
-import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
 
-export default function Email({setPasswordAgain, passwordAgain}) {
+export default function Email({
+  setPasswordAgain,
+  passwordAgain,
+  setFlagAgain,
+  flagAgain,
+}) {
+  const showPass = () => {
+    setFlagAgain(!flagAgain);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.email}>Пароль повторно</Text>
@@ -13,9 +28,11 @@ export default function Email({setPasswordAgain, passwordAgain}) {
           onChangeText={setPasswordAgain}
           value={passwordAgain}
           placeholder="**********"
-          secureTextEntry
+          secureTextEntry={flagAgain}
         />
-        <Eye style={styles.eye} />
+        <TouchableOpacity style={styles.eye} onPress={() => showPass()}>
+          <Eye />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

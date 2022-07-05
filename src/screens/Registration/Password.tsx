@@ -1,9 +1,19 @@
 import React from 'react';
-import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
 
-export default function Name({setPassword, password}) {
+export default function Name({setPassword, password, setFlag, flag}) {
+  const showPass = () => {
+    setFlag(!flag);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.name}>Пароль</Text>
@@ -13,9 +23,11 @@ export default function Name({setPassword, password}) {
           onChangeText={setPassword}
           value={password}
           placeholder="**********"
-          secureTextEntry
+          secureTextEntry={flag}
         />
-        <Eye style={styles.eye} />
+        <TouchableOpacity style={styles.eye} onPress={() => showPass()}>
+          <Eye />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

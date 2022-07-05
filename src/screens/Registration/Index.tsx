@@ -17,6 +17,8 @@ export default function Registration() {
   const [passwordAgain, setPasswordAgain] = useState('');
   const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState('');
+  const [flag, setFlag] = useState(true);
+  const [flagAgain, setFlagAgain] = useState(true);
 
   const createNode = (uid: string | undefined) => {
     database()
@@ -57,10 +59,17 @@ export default function Registration() {
         <Name name={name} setName={setName} />
         <Birth setBirthDate={setBirthDate} birthDate={birthDate} />
         <Email setEmail={setEmail} email={email} />
-        <Password setPassword={setPassword} password={password} />
+        <Password
+          setPassword={setPassword}
+          password={password}
+          setFlag={setFlag}
+          flag={flag}
+        />
         <PasswordAgain
           setPasswordAgain={setPasswordAgain}
           passwordAgain={passwordAgain}
+          setFlagAgain={setFlagAgain}
+          flagAgain={flagAgain}
         />
         <Button regAndSignIn={regAndSignIn} />
       </ScrollView>

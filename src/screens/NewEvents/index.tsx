@@ -1,17 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import Head from '../../screens/NewEvents/components/Head';
-import Button1 from '../../screens/NewEvents/components/Button';
-import New from '../../screens/NewEvents/components/New';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import Head from './components/Head';
+import Button1 from './components/Button';
+import New from './components/New';
+import Adds from './components/Adds';
 
-export default function NewEvents() {
+export default function NewEvents({navigation}: {navigation: any}) {
   return (
     <View style={styles.container}>
-      <Head
-        pressFunction={function (): void {
-          throw new Error('Function not implemented.');
-        }}
-      />
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Head />
+      </TouchableOpacity>
       <View>
         <Text style={styles.newevs}>Новые события</Text>
       </View>
@@ -23,6 +22,7 @@ export default function NewEvents() {
           borderWidth: 1,
           marginLeft: 12,
           marginRight: 12,
+          height: 150,
         }}>
         <New />
 
@@ -33,20 +33,8 @@ export default function NewEvents() {
             marginHorizontal: 10,
             margin: 10,
           }}>
-          <Button1
-            text="Не пойду"
-            accent={true}
-            onPress={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
-          <Button1
-            text="Пойду"
-            accent={false}
-            onPress={function (): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
+          <Button1 text="Не пойду" accent={true} />
+          <Button1 text="Пойду" />
         </View>
       </View>
       <View>
@@ -60,19 +48,21 @@ export default function NewEvents() {
           borderWidth: 1,
           marginLeft: 12,
           marginRight: 12,
-        }}
-      />
-      <View
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          borderColor: 'lightgrey',
-          borderRadius: 8,
-          margin: 10,
-          borderWidth: 1,
-          marginLeft: 12,
-          marginRight: 12,
-        }}
-      />
+          height: 150,
+        }}>
+        <Adds />
+
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            flexDirection: 'row',
+            marginHorizontal: 10,
+            margin: 10,
+          }}>
+          <Button1 text="Не пойду" accent={true} />
+          <Button1 text="Пойду" />
+        </View>
+      </View>
     </View>
   );
 }
@@ -80,12 +70,13 @@ export default function NewEvents() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingLeft: 9,
+    paddingRight: 9,
   },
-
   newevs: {
     fontWeight: 'bold',
-    fontSize: 17,
-    margin: 10,
+    fontSize: 22,
+    margin: 20,
     marginTop: 30,
   },
 });

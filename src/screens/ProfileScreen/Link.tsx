@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Linking} from 'react-native';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 const title = 'Сделано в рамках курса';
-const link = 'Heedy.Mobile';
+const link = 'https://www.heedy.ru/';
 
 export default function Link() {
   return (
@@ -11,9 +11,9 @@ export default function Link() {
       <CustomText textType="SFProDisplayRegular" style={styles.title}>
         {title}
       </CustomText>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => Linking.openURL(link)}>
         <CustomText textType="SFProDisplayRegular" style={styles.link}>
-          {link}
+          Heedy Mobile
         </CustomText>
       </TouchableOpacity>
     </View>
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     marginTop: 350,
     fontSize: 15,
     color: colors.MAIN_THEME_GRAY,
+    marginLeft: 10,
   },
 
   link: {

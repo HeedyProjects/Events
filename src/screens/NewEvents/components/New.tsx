@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import EventsTabIcon from '../../../../assets/SVG/eventsTabIcon.svg';
 import Bell from '../../../../assets/SVG/Bell.svg';
+import Flower from '../../../../assets/SVG/Flower.svg';
 
 export default function New() {
   return (
@@ -12,11 +12,11 @@ export default function New() {
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginHorizontal: 10,
-          marginTop: 20,
+          marginTop: -30,
         }}>
-        <EventsTabIcon />
+        <Flower style={styles.title} />
         <Text style={styles.eves}>Вечеринка "Only Jazz"</Text>
-        <Bell />
+        <Bell style={styles.bell} />
       </View>
       <Text style={styles.date}>28.05.2022, 20:30</Text>
     </View>
@@ -27,17 +27,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   eves: {
-    fontSize: 15,
-    marginBottom: 20,
+    fontSize: 17,
+    marginBottom: 70,
     padding: 12,
+    marginTop: 30,
+    paddingBottom: 20,
+    fontWeight: 'bold',
+    marginRight: 80,
   },
 
   date: {
     marginHorizontal: 10,
-    marginLeft: 20,
+    marginLeft: 35,
     color: 'grey',
     padding: 8,
-    marginTop: -18,
+    marginTop: -70,
+  },
+  title: {
+    marginTop: 40,
+  },
+  bell: {
+    marginTop: 40,
+    marginLeft: -20,
+    paddingEnd: -5,
   },
 });

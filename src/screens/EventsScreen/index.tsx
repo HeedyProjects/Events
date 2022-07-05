@@ -12,9 +12,11 @@ import CustomText from '../../components/CustomText';
 import BellIcon from '../../../assets/SVG/BellIcon.svg';
 import Eventcomponent from './components/EventComponent';
 import {EVENT_DATA} from './components/EventComponent';
+import {useNavigation} from '@react-navigation/native';
 import colors from '../../utils/colors';
 
-export default function Events({navigation}: {navigation: any}) {
+export default function Events() {
+  const navigation = useNavigation();
   useEffect(
     () =>
       async function eventsData() {
@@ -40,7 +42,9 @@ export default function Events({navigation}: {navigation: any}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.bellIconWrapper}>
-        <BellIcon />
+        <TouchableOpacity onPress={() => navigation.navigate('NewEvents')}>
+          <BellIcon />
+        </TouchableOpacity>
       </View>
       <CustomText style={styles.text} textType="SFProDisplayBlack">
         События

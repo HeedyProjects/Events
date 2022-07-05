@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   ImageSourcePropType,
+  TouchableOpacity,
 } from 'react-native';
 import InviteFriend from './components/InviteFriend';
 import Header from './components/Header';
@@ -24,7 +25,7 @@ interface friendType {
   };
 }
 
-export default function Events() {
+export default function Friends({navigation}: {navigation: any}) {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
   const data = useSelector(state => state.friends.friends);
   async function userData() {
@@ -44,7 +45,9 @@ export default function Events() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.paddings}>
-        <InviteFriend />
+        <TouchableOpacity onPress={() => navigation.navigate('InviteScreen')}>
+          <InviteFriend />
+        </TouchableOpacity>
         <Header />
 
         <InputComponent

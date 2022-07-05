@@ -1,30 +1,27 @@
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import BackIcon from '../../../../assets/SVG/Backicon.svg';
+import {View, StyleSheet, Text} from 'react-native';
+import IconLeft from '../../../../assets/SVG/LeftAccessory.svg';
 
-type MyHead = {
-  pressFunction: () => void;
-};
-
-export default function Head({pressFunction}: MyHead) {
+export default function Head() {
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-      <TouchableOpacity
-        onPress={() => {
-          pressFunction();
-        }}>
-        <BackIcon />
-      </TouchableOpacity>
+      <IconLeft style={styles.image} />
       <Text style={styles.notifications}>Уведомления</Text>
     </View>
   );
 }
 const styles = StyleSheet.create({
+  image: {
+    marginLeft: 10,
+    marginTop: 60,
+  },
+
   notifications: {
     fontSize: 19,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginRight: 100,
+    marginRight: 150,
+    marginTop: 60,
   },
 });

@@ -10,7 +10,14 @@ import {
 import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
 
-export default function Name({setPassword, password, setFlag, flag}) {
+interface IProps {
+  setPassword: () => void;
+  setFlag: (flag: boolean) => void;
+  password: string;
+  flag: boolean;
+}
+
+export default function Name({setPassword, password, setFlag, flag}: IProps) {
   const showPass = () => {
     setFlag(!flag);
   };

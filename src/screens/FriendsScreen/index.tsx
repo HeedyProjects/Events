@@ -17,6 +17,7 @@ import colors from '../../utils/colors';
 import InputComponent from '../../components/InputComponent';
 import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth';
+import {RootState} from '../../store/index';
 interface friendType {
   item: {
     photo: ImageSourcePropType;
@@ -27,7 +28,7 @@ interface friendType {
 
 export default function Friends({navigation}: {navigation: any}) {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
-  const data = useSelector(state => state.friends.friends);
+  const data = useSelector((state: RootState) => state.friends.friends);
   async function userData() {
     const dataBaseRef = await database().ref(
       '/Users/' + auth().currentUser?.uid,

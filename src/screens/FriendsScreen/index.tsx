@@ -15,6 +15,7 @@ import {useSelector} from 'react-redux';
 import colors from '../../utils/colors';
 import InputComponent from '../../components/InputComponent';
 import database from '@react-native-firebase/database';
+import auth from '@react-native-firebase/auth';
 interface friendType {
   item: {
     photo: ImageSourcePropType;
@@ -27,7 +28,10 @@ export default function Events() {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
   const data = useSelector(state => state.friends.friends);
   async function userData() {
-    const dataBaseRef = await database().ref('/Users');
+    const dataBaseRef = await database().ref(
+      '/Users/' + auth().currentUser?.uid,
+    );
+    // const dataBaseRef = await database().ref('/Users').orderByChild;
     const data1 = await dataBaseRef.once('value');
     const userList = data1.val();
     return console.log('WWWWWWWWWW', userList);

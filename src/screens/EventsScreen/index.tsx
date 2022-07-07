@@ -18,16 +18,24 @@ import {useNavigation} from '@react-navigation/native';
 
 export default function Events() {
   const navigation = useNavigation();
-  useEffect(
-    () =>
-      async function eventsData() {
-        const databaseRef = await database().ref('/Events');
-        const data = await databaseRef.once('value');
-        const eventsList = data.val();
-        return eventsList;
-      },
-    [],
-  );
+  const eventsData = async () => {
+    const databaseRef = database().ref('/Events');
+    const data = await databaseRef.once('value');
+    const eventsList = data.val();
+    // console.log('IIIIIIIII', eventsList);
+    const events2 = Object.values(eventsList);
+    // console.log('EVENTS2', events2);
+    const keys = Object.keys(eventsList);
+    const events3 = keys.map(key => {
+      return {...eventsList[key], id: key};
+    });
+
+    // console.log('keys', keys)
+    // console.log('EVENTS3', events3)
+  };
+  useEffect(() => {
+    eventsData();
+  }, []);
 
   useEffect(
     () =>
@@ -35,7 +43,7 @@ export default function Events() {
         const dataBaseRef = await database().ref('/Users');
         const data = await dataBaseRef.once('value');
         const userList = data.val();
-        console.log('WWWWWWWWWW', userList);
+        console.log('WWWWWWWWW', userList);
       },
     [],
   );

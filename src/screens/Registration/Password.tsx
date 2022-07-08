@@ -11,13 +11,13 @@ import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
 
 interface IProps {
-  setPassword: () => void;
+  setPassword: (password: string) => void;
   setFlag: (flag: boolean) => void;
   password: string;
   flag: boolean;
 }
 
-export default function Name({setPassword, password, setFlag, flag}: IProps) {
+export default function Pass({setPassword, password, setFlag, flag}: IProps) {
   const showPass = () => {
     setFlag(!flag);
   };

@@ -1,13 +1,18 @@
 import React from 'react';
 import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
 import Dates from '../../../assets/SVG/Dates.svg';
+interface IProps {
+  setBirthDate: (birthDate: string) => void;
+  birthDate: string;
+}
 
-export default function Birth({setBirthDate, birthDate}) {
+export default function Birth({setBirthDate, birthDate}: IProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.birth}>Дата рождения</Text>
       <View style={styles.change}>
         <Dates style={styles.pic} />
+
         <TextInput
           onChangeText={setBirthDate}
           value={birthDate}

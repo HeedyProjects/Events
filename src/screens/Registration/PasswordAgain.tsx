@@ -9,13 +9,19 @@ import {
 } from 'react-native';
 import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
+interface IProps {
+  setPasswordAgain: (password: string) => void;
+  setFlagAgain: (flag: boolean) => void;
+  passwordAgain: string;
+  flagAgain: boolean;
+}
 
-export default function Email({
+export default function PassAgain({
   setPasswordAgain,
   passwordAgain,
   setFlagAgain,
   flagAgain,
-}) {
+}: IProps) {
   const showPass = () => {
     setFlagAgain(!flagAgain);
   };

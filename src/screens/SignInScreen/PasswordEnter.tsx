@@ -5,8 +5,11 @@ import Password from '../../../assets/SVG/Password.svg';
 import CustomText from '../../components/CustomText';
 
 const title = 'Пароль';
-
-export default function Pass({password, setPassword}) {
+interface IProps {
+  password: string;
+  setPassword: (password: string) => void;
+}
+export default function Pass({password, setPassword}: IProps) {
   return (
     <SafeAreaView>
       <CustomText textType="SFProDisplayRegular" style={styles.title}>

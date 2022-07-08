@@ -35,8 +35,8 @@ export const EVENT_DATA = [
     status: false,
   },
   {
-    id: 4,
-    title: 'Вечеринка «Назад в 90-е»',
+    id: 5,
+    title: 'Вечеринка «Назад в 80-е»',
     time: '25.05.2022',
     date: '21:00',
     status: false,

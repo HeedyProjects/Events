@@ -5,12 +5,12 @@ import Header from '../EventInvitation/components/Header';
 import Item from '../FriendsScreen/components/FlatListItem';
 import FlatList from './components/FlatList';
 import Event from '../EventInvitation/components/Event';
-
+import {RootState} from '../../store/index';
 export default function EventInvitation({navigation}: {navigation: any}) {
   type NewType = friendType;
 
   const renderItem = ({item}: NewType) => <Item friend={item} />;
-  const data = useSelector(state => state.friends.friends);
+  const data = useSelector((state: RootState) => state.friends.friends);
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>

@@ -1,20 +1,12 @@
 import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-  View,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, ScrollView, View} from 'react-native';
 import colors from '../../utils/colors';
-import CustomText from '../../components/CustomText';
 import Pic from './Image';
 import Mail from './Emailenter';
 import Pass from './PasswordEnter';
 import Reg from './Registrate';
 import But from './Button';
 import auth from '@react-native-firebase/auth';
-const forgot = 'Забыли пароль?';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -45,11 +37,7 @@ export default function SignIn() {
         </View>
         <Mail email={email} setEmail={setEmail} />
         <Pass password={password} setPassword={setPassword} />
-        <TouchableOpacity style={styles.forgotField}>
-          <CustomText textType="SFProDisplayRegular" style={styles.forgot}>
-            {forgot}
-          </CustomText>
-        </TouchableOpacity>
+
         <But signIn={signIn} />
         <Reg />
       </ScrollView>
@@ -67,16 +55,5 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 18,
     marginBottom: 2,
-  },
-  forgotField: {
-    alignItems: 'flex-end',
-    marginRight: 15,
-  },
-  forgot: {
-    color: colors.SEE_MORE,
-    fontWeight: '500',
-    fontSize: 13,
-    lineHeight: 24,
-    letterSpacing: -0.08,
   },
 });

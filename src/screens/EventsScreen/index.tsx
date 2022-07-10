@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import database from '@react-native-firebase/database';
 
 import {
@@ -18,6 +18,28 @@ import {useNavigation} from '@react-navigation/native';
 
 export default function Events() {
   const navigation = useNavigation();
+  const [events, setEvents] = useState(EVENT_DATA);
+  const [filteredEvents, setFilteredEvents] = useState();
+  const [search, setSearch] = useState('');
+  const isStringContain = (text: string, containedText: string) => {
+    return text.toUpperCase().includes(containedText.toUpperCase());
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const filterArrayWithFilter = () => {
+    const newEvents = events.filter(
+      event =>
+        !search ||
+        isStringContain(event?.title, search) ||
+        isStringContain(event?.time, search),
+    );
+    setFilteredEvents(newEvents);
+  };
+
+  useEffect(() => {
+    filterArrayWithFilter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search, events]);
+
   useEffect(
     () =>
       async function eventsData() {
@@ -52,10 +74,13 @@ export default function Events() {
       </CustomText>
 
       <InputComponent
+        onChangeText={setSearch}
+        value={search}
         backgroundColor={'#f5f5f5'}
         placeholder={'Поиск'}
         placeholderTextColor={'#A3A3A0'}
-        marginBottom={24}>
+        marginBottom={24}
+        borderWidth={0}>
         <View style={styles.svgWrapper}>
           <SearchIcon />
         </View>
@@ -63,7 +88,7 @@ export default function Events() {
 
       <FlatList
         nestedScrollEnabled={true}
-        data={EVENT_DATA}
+        data={filteredEvents}
         renderItem={Eventcomponent}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}

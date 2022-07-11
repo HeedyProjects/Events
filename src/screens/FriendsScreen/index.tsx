@@ -33,6 +33,7 @@ export default function Friends({navigation}: {navigation: any}) {
     const dataBaseRef = await database().ref(
       '/Users/' + auth().currentUser?.uid + '/friends',
     );
+    console.log(auth().currentUser?.uid)
     // const dataBaseRef = await database().ref('/Users').orderByChild;
     const data1 = await dataBaseRef.once('value');
     const userList = data1.val();

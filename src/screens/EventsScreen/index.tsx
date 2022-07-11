@@ -18,6 +18,8 @@ import {useNavigation} from '@react-navigation/native';
 
 export default function Events() {
   const navigation = useNavigation();
+
+
   const eventsData = async () => {
     const databaseRef = database().ref('/Events');
     const data = await databaseRef.once('value');
@@ -30,8 +32,8 @@ export default function Events() {
       return {...eventsList[key], id: key};
     });
 
-    // console.log('keys', keys)
-    // console.log('EVENTS3', events3)
+    console.log('keys', keys)
+    console.log('EVENTS3', events3)
   };
   useEffect(() => {
     eventsData();

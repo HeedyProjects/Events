@@ -31,7 +31,7 @@ export default function Friends({navigation}: {navigation: any}) {
   const data = useSelector((state: RootState) => state.friends.friends);
   async function userData() {
     const dataBaseRef = await database().ref(
-      '/Users/' + auth().currentUser?.uid + '/friends/',
+      '/Users/' + auth().currentUser?.uid + '/friends',
     );
     // const dataBaseRef = await database().ref('/Users').orderByChild;
     const data1 = await dataBaseRef.once('value');

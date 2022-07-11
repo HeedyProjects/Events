@@ -52,7 +52,7 @@ export default function Registration() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.paddings}>
         <View>
           <Head />
           <AddPhoto />
@@ -85,7 +85,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+  },
+  paddings: {
     paddingLeft: 16,
     paddingRight: 15,
-  },
+  }
 });

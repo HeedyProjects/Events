@@ -1,16 +1,18 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 import Head from '../ProfileScreen/Head';
 import Info from '../ProfileScreen/Info';
 import Notifications from '../ProfileScreen/Notifications';
 import Link from '../ProfileScreen/Link';
+import { SafeAreaView } from 'react-native-safe-area-context';
 const title = 'Профиль';
 
 export default function ProfileScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+    <View style={styles.paddings}>
       <Head />
       <CustomText textType="SFProDisplayBlack" style={styles.title}>
         {title}
@@ -22,6 +24,7 @@ export default function ProfileScreen() {
 
       <Link />
     </View>
+    </SafeAreaView>
   );
 }
 
@@ -30,7 +33,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.FRIENDS_SCREEN_BACKGROUND,
   },
-
+  paddings: {
+    paddingTop: 26
+  },
   title: {
     fontWeight: '700',
     fontSize: 34,
@@ -38,15 +43,5 @@ const styles = StyleSheet.create({
     letterSpacing: 0.37,
     color: colors.SCREEN_TITLE,
     marginLeft: 15,
-  },
-
-  frame: {
-    borderColor: 'lightgrey',
-    borderRadius: 8,
-    borderWidth: 1,
-    marginLeft: 15,
-    marginRight: 16,
-    marginTop: 24,
-    padding: 45,
   },
 });

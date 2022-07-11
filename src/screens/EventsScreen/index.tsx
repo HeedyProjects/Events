@@ -41,6 +41,7 @@ export default function Events() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.paddings}>
       <View style={styles.bellIconWrapper}>
         <TouchableOpacity onPress={() => navigation.navigate('NewEvents')}>
           <BellIcon />
@@ -73,11 +74,16 @@ export default function Events() {
           + Новое событие
         </CustomText>
       </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  paddings:{
+    paddingLeft: 16,
+    paddingRight: 15,
+  },
   newEventButton: {
     padding: 12,
     backgroundColor: '#5651D4',
@@ -99,8 +105,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width: '100%',
     height: '100%',
-    paddingLeft: 16,
-    paddingRight: 15,
   },
   text: {
     fontWeight: '700',

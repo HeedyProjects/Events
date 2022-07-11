@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, TextInput} from 'react-native';
+import {StyleSheet, View, TextInput, Platform} from 'react-native';
 import SearchIcon from '../../assets/SVG/searchIcon.svg';
 interface IProps {
   placeholder?: string;
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   svgWrapper: {
     position: 'absolute',
     left: 12,
-    top: 8,
+    top: Platform.OS == 'android'? 8: 4,
     zIndex: 1,
   },
 });

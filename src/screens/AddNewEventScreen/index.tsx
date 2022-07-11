@@ -98,11 +98,13 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.eventsHeader}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Backicon />
-        </TouchableOpacity>
+      <View style={styles.paddings}>
 
+      <View style={styles.eventsHeader}>
+
+      <TouchableOpacity style={styles.backArrow} onPress={() => navigation.goBack()}>
+          <Backicon />
+       </TouchableOpacity>
         <CustomText style={styles.text} textType="SFProDisplayBold">
           Добавить новое событие
         </CustomText>
@@ -137,21 +139,26 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
           + Новое событие
         </CustomText>
       </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  backArrow: {
+    position: 'absolute',
+    left: 0
+  },
+  paddings: {
+    paddingLeft: 16,
+    paddingRight: 15
+  },
   newEventButton: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 95,
-    paddingRight: 95,
-    marginLeft: 16,
-    marginRight: 16,
+    padding: 20,
     marginBottom: 17,
     backgroundColor: '#5651D4',
     borderRadius: 8,
+    alignItems: 'center'
   },
   buttonText: {
     color: '#fff',
@@ -164,8 +171,6 @@ const styles = StyleSheet.create({
   switchWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginRight: 16,
-    marginLeft: 16,
     marginBottom: 90,
   },
   flatlistWrapper: {
@@ -179,13 +184,11 @@ const styles = StyleSheet.create({
     right: 35,
   },
   eventsHeader: {
-    marginLeft: 16,
-    magrginTop: 55,
-    flexDirection: 'row',
+    alignItems: 'center'
+
   },
   inputTitle: {
     fontSize: 13,
-    marginLeft: 20,
     marginBottom: 6,
   },
 
@@ -201,13 +204,11 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     flexDirection: 'row',
-    marginRight: 16,
-    marginLeft: 16,
   },
   text: {
     fontSize: 14,
-    marginLeft: 16,
     marginBottom: 18,
+    marginTop: 26
   },
 });
 // function ref(arg0: string) {

@@ -33,12 +33,12 @@ const styles = StyleSheet.create({
     letterSpacing: -0.32,
   },
   container: {
-    paddingTop: 10,
+
     paddingLeft: 9,
     paddingRight: 9,
     flexDirection: 'row',
     marginRight: 4,
-    marginTop: 34,
+
     alignSelf: 'flex-end',
   },
 });

@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   SafeAreaView,
   StyleSheet,
   FlatList,
-  ImageSourcePropType,
   TouchableOpacity,
 } from 'react-native';
 import InviteFriend from './components/InviteFriend';
@@ -20,25 +19,46 @@ import auth from '@react-native-firebase/auth';
 import {RootState} from '../../store/index';
 interface friendType {
   item: {
-    photo: ImageSourcePropType;
-    name: string;
     commonEvents: number;
+    name: string;
+    photo: string;
+  };
+}
+
+interface friendType1 {
+  item_0: {
+    commonEvents: number;
+    name: string;
+    photo: string;
   };
 }
 
 export default function Friends({navigation}: {navigation: any}) {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
   const data = useSelector((state: RootState) => state.friends.friends);
+  const init = {
+    commonEvents: 0,
+    name: null,
+    photo: null,
+  }
+  const [arr, setArr] = useState([]);
   async function userData() {
     const dataBaseRef = await database().ref(
       '/Users/' + auth().currentUser?.uid + '/friends',
     );
-    console.log(auth().currentUser?.uid)
     // const dataBaseRef = await database().ref('/Users').orderByChild;
     const data1 = await dataBaseRef.once('value');
     const userList = data1.val();
-    return console.log('WWWWWWWWWW', userList);
+    let newArr = []
+    for (let key in userList)
+    {
+      newArr = [...newArr, userList[key]]
+      setArr(newArr)
+    }
+    
+    return console.log('eeeeeeee', arr);
   }
+
 
   useEffect(() => {
     userData();
@@ -66,7 +86,7 @@ export default function Friends({navigation}: {navigation: any}) {
       </View>
       <View style={styles.list}>
         <FlatList
-          data={data}
+          data={arr}
           renderItem={renderItem}
           nestedScrollEnabled={true}
           showsHorizontalScrollIndicator={false}

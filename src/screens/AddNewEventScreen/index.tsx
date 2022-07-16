@@ -86,7 +86,9 @@ const RenderItem = ({item}: {item: any}) => (
       backgroundColor={'#fff'}
       placeholder={item.placeHolder}
       placeholderTextColor={'#A3A3A0'}
+      onChangeText={item.onChangeText}
       marginBottom={24}>
+      
       <View style={styles.svgWrapper}>{item.icon}</View>
       <View style={styles.arrowWrapper}>{item.rightIcon}</View>
     </InputComponent>

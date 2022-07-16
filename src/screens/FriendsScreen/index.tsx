@@ -25,22 +25,9 @@ interface friendType {
   };
 }
 
-interface friendType1 {
-  item_0: {
-    commonEvents: number;
-    name: string;
-    photo: string;
-  };
-}
-
 export default function Friends({navigation}: {navigation: any}) {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
   const data = useSelector((state: RootState) => state.friends.friends);
-  const init = {
-    commonEvents: 0,
-    name: null,
-    photo: null,
-  }
   const [arr, setArr] = useState([]);
   async function userData() {
     const dataBaseRef = await database().ref(

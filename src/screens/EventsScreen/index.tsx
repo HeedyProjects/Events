@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import database from '@react-native-firebase/database';
-
 import {
   StyleSheet,
   SafeAreaView,
@@ -11,11 +10,11 @@ import {
 import InputComponent from '../../components/InputComponent';
 import CustomText from '../../components/CustomText';
 import BellIcon from '../../../assets/SVG/BellIcon.svg';
-import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 import Eventcomponent from './components/EventComponent';
 import {EVENT_DATA} from './components/EventComponent';
 import {useNavigation} from '@react-navigation/native';
-
+import colors from '../../utils/colors';
+import SearchIcon from '../../../assets/SVG/searchIcon.svg'
 export default function Events() {
   const navigation = useNavigation();
   const [events, setEvents] = useState(EVENT_DATA);
@@ -64,12 +63,13 @@ export default function Events() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.paddings}>
       <View style={styles.bellIconWrapper}>
         <TouchableOpacity onPress={() => navigation.navigate('NewEvents')}>
           <BellIcon />
         </TouchableOpacity>
       </View>
-      <CustomText style={styles.text} textType="SFProDisplayBold">
+      <CustomText style={styles.text} textType="SFProDisplayBlack">
         События
       </CustomText>
 
@@ -101,21 +101,22 @@ export default function Events() {
           + Новое событие
         </CustomText>
       </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  paddings:{
+    paddingLeft: 16,
+    paddingRight: 15,
+  },
   newEventButton: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 95,
-    paddingRight: 95,
-    marginLeft: 16,
-    marginRight: 16,
-    marginBottom: 17,
+    padding: 12,
     backgroundColor: '#5651D4',
     borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 17,
   },
   buttonText: {
     color: '#fff',
@@ -124,29 +125,26 @@ const styles = StyleSheet.create({
   //=====================================
   svgWrapper: {
     position: 'absolute',
-    left: 20,
+    left: 28,
+    top: 8,
   },
   container: {
     backgroundColor: '#fff',
     width: '100%',
     height: '100%',
   },
-  inputWrapper: {
-    flexDirection: 'row',
-    marginRight: 16,
-    marginLeft: 16,
-  },
   text: {
+    fontWeight: '700',
     fontSize: 34,
-    marginLeft: 16,
-    marginBottom: 18,
+    lineHeight: 40,
+    letterSpacing: 0.37,
+    color: colors.SCREEN_TITLE,
+    marginBottom: 16,
   },
   bellIconWrapper: {
-    marginRight: 22,
-    marginLeft: 16,
-    marginBottom: 16,
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    marginTop: 25.99,
   },
 });
 function ref(arg0: string) {

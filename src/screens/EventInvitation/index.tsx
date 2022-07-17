@@ -1,16 +1,22 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {ImageSourcePropType, SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../EventInvitation/components/Header';
 import Item from '../FriendsScreen/components/FlatListItem';
 import FlatList from './components/FlatList';
 import Event from '../EventInvitation/components/Event';
-
+import {RootState} from '../../store/index';
 export default function EventInvitation({navigation}: {navigation: any}) {
-  type NewType = friendType;
+  interface friendType {
+    item: {
+      photo: ImageSourcePropType;
+      name: string;
+      commonEvents: number;
+    };
+  }
 
-  const renderItem = ({item}: NewType) => <Item friend={item} />;
-  const data = useSelector(state => state.friends.friends);
+  const renderItem = ({item}: friendType) => <Item friend={item} />;
+  const data = useSelector((state: RootState) => state.friends.friends);
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>

@@ -1,22 +1,44 @@
 import React from 'react';
-import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import Password from '../../../assets/SVG/Password.svg';
 import Eye from '../../../assets/SVG/Eye.svg';
+interface IProps {
+  setPasswordAgain: (password: string) => void;
+  setFlagAgain: (flag: boolean) => void;
+  passwordAgain: string;
+  flagAgain: boolean;
+}
 
-export default function Email() {
-  const [text, onChangeText] = React.useState('');
-
+export default function PassAgain({
+  setPasswordAgain,
+  passwordAgain,
+  setFlagAgain,
+  flagAgain,
+}: IProps) {
+  const showPass = () => {
+    setFlagAgain(!flagAgain);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.email}>Пароль повторно</Text>
       <View style={styles.change}>
         <Password style={styles.pic} />
         <TextInput
-          onChangeText={onChangeText}
-          value={text}
+          onChangeText={setPasswordAgain}
+          value={passwordAgain}
           placeholder="**********"
+          secureTextEntry={flagAgain}
         />
-        <Eye style={styles.eye} />
+        <TouchableOpacity style={styles.eye} onPress={() => showPass()}>
+          <Eye />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

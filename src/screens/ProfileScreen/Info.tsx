@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {StyleSheet, Image, TouchableOpacity, View} from 'react-native';
 import Path from '../../../assets/SVG/Path.svg';
 import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 import {useNavigation} from '@react-navigation/native';
-const name = 'Мария Георгиева';
+import database from '@react-native-firebase/database';
+import auth from '@react-native-firebase/auth';
+
+
 const bio = 'Фото и личные данные';
 
 export default function Info() {
+  const [name, setName] = useState('')
   const navigation = useNavigation();
+  async function userData() {
+    const dataBaseRef = await database().ref(
+      '/Users/' + auth().currentUser?.uid,
+    );
+    // const dataBaseRef = await database().ref('/Users').orderByChild;
+    const data1 = await dataBaseRef.once('value');
+    setName(data1.val().name);
+  }
+  useEffect(() => {
+    userData();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.page}>

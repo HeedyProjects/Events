@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 // import database from '@react-native-firebase/database';
 import Backicon from '../../../assets/SVG/Backicon.svg';
 import Event from '../../../assets/SVG/Event.svg';
@@ -18,8 +18,8 @@ import {
 } from 'react-native';
 import InputComponent from '../../components/InputComponent';
 import CustomText from '../../components/CustomText';
-import BellIcon from '../../../assets/SVG/BellIcon.svg';
-import SearchIcon from '../../../assets/SVG/searchIcon.svg';
+// import BellIcon from '../../../assets/SVG/BellIcon.svg';
+// import SearchIcon from '../../../assets/SVG/searchIcon.svg';
 // import Eventcomponent from '../EventsScreen/components/EventComponent';
 // import {EVENT_DATA} from '../EventsScreen/components/EventComponent';
 
@@ -78,7 +78,7 @@ const addEventData = [
 
 const RenderItem = ({item}: {item: any}) => (
   <View style={styles.blockWrapper}>
-    <CustomText style={styles.inputTitle} textType="SFProText-regular">
+    <CustomText style={styles.inputTitle} textType="SFProTextRegular">
       {item.title}
     </CustomText>
     <InputComponent
@@ -86,7 +86,9 @@ const RenderItem = ({item}: {item: any}) => (
       backgroundColor={'#fff'}
       placeholder={item.placeHolder}
       placeholderTextColor={'#A3A3A0'}
+      onChangeText={item.onChangeText}
       marginBottom={24}>
+      
       <View style={styles.svgWrapper}>{item.icon}</View>
       <View style={styles.arrowWrapper}>{item.rightIcon}</View>
     </InputComponent>
@@ -98,11 +100,13 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.eventsHeader}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Backicon />
-        </TouchableOpacity>
+      <View style={styles.paddings}>
 
+      <View style={styles.eventsHeader}>
+
+      <TouchableOpacity style={styles.backArrow} onPress={() => navigation.goBack()}>
+          <Backicon />
+       </TouchableOpacity>
         <CustomText style={styles.text} textType="SFProDisplayBold">
           Добавить новое событие
         </CustomText>
@@ -119,7 +123,7 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
       </View>
 
       <View style={styles.switchWrapper}>
-        <CustomText style={styles.switchText} textType="SFProText-regular">
+        <CustomText style={styles.switchText} textType="SFProTextRegular">
           Включить уведомления
         </CustomText>
         <Switch
@@ -137,21 +141,26 @@ export default function AddNewEventScreen({navigation}: {navigation: any}) {
           + Новое событие
         </CustomText>
       </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  backArrow: {
+    position: 'absolute',
+    left: 0
+  },
+  paddings: {
+    paddingLeft: 16,
+    paddingRight: 15
+  },
   newEventButton: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 95,
-    paddingRight: 95,
-    marginLeft: 16,
-    marginRight: 16,
+    padding: 20,
     marginBottom: 17,
     backgroundColor: '#5651D4',
     borderRadius: 8,
+    alignItems: 'center'
   },
   buttonText: {
     color: '#fff',
@@ -164,8 +173,6 @@ const styles = StyleSheet.create({
   switchWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginRight: 16,
-    marginLeft: 16,
     marginBottom: 90,
   },
   flatlistWrapper: {
@@ -179,13 +186,11 @@ const styles = StyleSheet.create({
     right: 35,
   },
   eventsHeader: {
-    marginLeft: 16,
-    magrginTop: 55,
-    flexDirection: 'row',
+    alignItems: 'center'
+
   },
   inputTitle: {
     fontSize: 13,
-    marginLeft: 20,
     marginBottom: 6,
   },
 
@@ -201,13 +206,11 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     flexDirection: 'row',
-    marginRight: 16,
-    marginLeft: 16,
   },
   text: {
     fontSize: 14,
-    marginLeft: 16,
     marginBottom: 18,
+    marginTop: 26
   },
 });
 // function ref(arg0: string) {

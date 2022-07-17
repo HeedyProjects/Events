@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   reg: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 80,
+    marginTop: 5,
   },
 
   text1: {

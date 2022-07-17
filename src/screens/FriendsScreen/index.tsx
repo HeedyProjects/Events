@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   SafeAreaView,
@@ -9,13 +9,15 @@ import {
 } from 'react-native';
 import InviteFriend from './components/InviteFriend';
 import Header from './components/Header';
-import SearchLine from './components/SearchLine';
 import NewRequestHeader from './components/NewRequstsHeader';
 import NewRequestItem from './components/NewRequestItem';
 import Item from './components/FlatListItem';
 import {useSelector} from 'react-redux';
 import colors from '../../utils/colors';
-
+import InputComponent from '../../components/InputComponent';
+import database from '@react-native-firebase/database';
+import auth from '@react-native-firebase/auth';
+import {RootState} from '../../store/index';
 interface friendType {
   item: {
     photo: ImageSourcePropType;
@@ -26,7 +28,21 @@ interface friendType {
 
 export default function Friends({navigation}: {navigation: any}) {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
-  const data = useSelector(state => state.friends.friends);
+  const data = useSelector((state: RootState) => state.friends.friends);
+  async function userData() {
+    const dataBaseRef = await database().ref(
+      '/Users/' + auth().currentUser?.uid + '/friends',
+    );
+    console.log(auth().currentUser?.uid)
+    // const dataBaseRef = await database().ref('/Users').orderByChild;
+    const data1 = await dataBaseRef.once('value');
+    const userList = data1.val();
+    return console.log('WWWWWWWWWW', userList);
+  }
+
+  useEffect(() => {
+    userData();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,7 +52,13 @@ export default function Friends({navigation}: {navigation: any}) {
         </TouchableOpacity>
         <Header />
 
-        <SearchLine />
+        <InputComponent
+          backgroundColor={'#f5f5f5'}
+          placeholder={'Поиск'}
+          placeholderTextColor={'#A3A3A0'}
+          marginBottom={24}
+          borderWidth={0}
+        />
 
         <NewRequestHeader />
 

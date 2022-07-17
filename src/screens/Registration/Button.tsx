@@ -4,9 +4,13 @@ import CustomText from '../../components/CustomText';
 import colors from '../../utils/colors';
 const title = 'Продолжить';
 
-export default function Button() {
+export default function Button({regAndSignIn}) {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => {
+        regAndSignIn();
+      }}>
       <CustomText textType="SFProDisplayBlack" style={styles.title}>
         {title}
       </CustomText>

@@ -16,6 +16,7 @@ export default function Password() {
           onChangeText={onChangeText}
           value={text}
           placeholder="example@com"
+          secureTextEntry={true}
         />
         <Eye style={styles.eye} />
       </View>

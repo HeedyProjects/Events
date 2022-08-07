@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 // import database from '@react-native-firebase/database';
 import Backicon from '../../../assets/SVG/Backicon.svg';
 import Event from '../../../assets/SVG/Event.svg';
@@ -18,10 +19,6 @@ import {
 } from 'react-native';
 import InputComponent from '../../components/InputComponent';
 import CustomText from '../../components/CustomText';
-// import BellIcon from '../../../assets/SVG/BellIcon.svg';
-// import SearchIcon from '../../../assets/SVG/searchIcon.svg';
-// import Eventcomponent from '../EventsScreen/components/EventComponent';
-// import {EVENT_DATA} from '../EventsScreen/components/EventComponent';
 
 const addEventData = [
   {

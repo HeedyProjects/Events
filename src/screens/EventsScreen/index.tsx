@@ -12,11 +12,11 @@ import CustomText from '../../components/CustomText';
 import BellIcon from '../../../assets/SVG/BellIcon.svg';
 import Eventcomponent from './components/EventComponent';
 import {EVENT_DATA} from './components/EventComponent';
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 import colors from '../../utils/colors';
-import SearchIcon from '../../../assets/SVG/searchIcon.svg'
-export default function Events() {
-  const navigation = useNavigation();
+import SearchIcon from '../../../assets/SVG/searchIcon.svg';
+export default function Events({navigation}) {
+  // const navigation = useNavigation();
   const [events, setEvents] = useState(EVENT_DATA);
   const [filteredEvents, setFilteredEvents] = useState();
   const [search, setSearch] = useState('');
@@ -64,50 +64,50 @@ export default function Events() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.paddings}>
-      <View style={styles.bellIconWrapper}>
-        <TouchableOpacity onPress={() => navigation.navigate('NewEvents')}>
-          <BellIcon />
-        </TouchableOpacity>
-      </View>
-      <CustomText style={styles.text} textType="SFProDisplayBlack">
-        События
-      </CustomText>
-
-      <InputComponent
-        onChangeText={setSearch}
-        value={search}
-        backgroundColor={'#f5f5f5'}
-        placeholder={'Поиск'}
-        placeholderTextColor={'#A3A3A0'}
-        marginBottom={24}
-        borderWidth={0}>
-        <View style={styles.svgWrapper}>
-          <SearchIcon />
+        <View style={styles.bellIconWrapper}>
+          <TouchableOpacity onPress={() => navigation.navigate('NewEvents')}>
+            <BellIcon />
+          </TouchableOpacity>
         </View>
-      </InputComponent>
-
-      <FlatList
-        nestedScrollEnabled={true}
-        data={filteredEvents}
-        renderItem={Eventcomponent}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-      />
-
-      <TouchableOpacity
-        style={styles.newEventButton}
-        onPress={() => navigation.navigate('AddNewEventScreen')}>
-        <CustomText style={styles.buttonText} textType="SFProTextbold">
-          + Новое событие
+        <CustomText style={styles.text} textType="SFProDisplayBlack">
+          События
         </CustomText>
-      </TouchableOpacity>
+
+        <InputComponent
+          onChangeText={setSearch}
+          value={search}
+          backgroundColor={'#f5f5f5'}
+          placeholder={'Поиск'}
+          placeholderTextColor={'#A3A3A0'}
+          marginBottom={24}
+          borderWidth={0}>
+          <View style={styles.svgWrapper}>
+            <SearchIcon />
+          </View>
+        </InputComponent>
+
+        <FlatList
+          nestedScrollEnabled={true}
+          data={events}
+          renderItem={Eventcomponent}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
+
+        <TouchableOpacity
+          style={styles.newEventButton}
+          onPress={() => navigation.navigate('AddNewEventScreen')}>
+          <CustomText style={styles.buttonText} textType="SFProTextbold">
+            + Новое событие
+          </CustomText>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  paddings:{
+  paddings: {
     paddingLeft: 16,
     paddingRight: 15,
   },

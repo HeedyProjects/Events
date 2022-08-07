@@ -8,6 +8,7 @@ import NewEvents from '../screens/NewEvents';
 import InviteScreen from '../screens//InviteScreen';
 import Profile from '../screens/Profile';
 import FriendsScreen from '../screens//FriendsScreen';
+import EventsScreen from '../screens/EventsScreen';
 
 // import EntryStackNavigator from './EntryStackNavigator';
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ function ScreenStackNavigator() {
         <Stack.Screen name="InviteScreen" component={InviteScreen} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="FriendsScreen" component={FriendsScreen} />
+        <Stack.Screen name="EventsScreen" component={EventsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

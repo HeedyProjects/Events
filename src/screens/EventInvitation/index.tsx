@@ -1,5 +1,11 @@
 import React from 'react';
-import {ImageSourcePropType, SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  ImageSourcePropType,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useSelector} from 'react-redux';
 import Header from '../EventInvitation/components/Header';
 import Item from '../FriendsScreen/components/FlatListItem';

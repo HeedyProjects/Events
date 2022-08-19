@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Image, StyleSheet, ImageSourcePropType} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 import CustomText from '../../../components/CustomText';
 import colors from '../../../utils/colors';
 interface friendType {
   friend: {
-    photo: ImageSourcePropType;
+    photo: string;
     name: string;
     commonEvents: number;
   };
@@ -12,10 +12,10 @@ interface friendType {
 
 const Item = ({friend}: friendType) => (
   <View style={styles.listItem}>
-    <Image source={friend.photo} style={styles.profileIcon} />
+    <Image source={{uri: friend.photo}} style={styles.profileIcon} />
     <View style={styles.itemText}>
       <CustomText textType="SFProDisplayRegular" style={styles.friendNameText}>
-        {friend.name}
+        {friend?.name}
       </CustomText>
       <CustomText
         textType="SFProDisplayRegular"

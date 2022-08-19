@@ -45,7 +45,7 @@ export const EVENT_DATA = [
 ];
 
 const EventComponent = ({item}) => {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   return (
     <TouchableOpacity onPress={() => navigation.navigate('AddNewEventScreen')}>
       <View style={styles.eventItemWrapper}>

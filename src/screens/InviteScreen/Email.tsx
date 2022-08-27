@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Text, TextInput, SafeAreaView} from 'react-native';
 import Emails from '../../../assets/SVG/Emails.svg';
 
-export default function Email() {
+export default function Email({email, setEmail}) {
   const [text, onChangeText] = React.useState('');
 
   return (
@@ -11,8 +11,8 @@ export default function Email() {
       <View style={styles.change}>
         <Emails style={styles.pic} />
         <TextInput
-          onChangeText={onChangeText}
-          value={text}
+          onChangeText={setEmail}
+          value={email}
           placeholder="example.com"
         />
       </View>

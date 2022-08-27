@@ -25,6 +25,7 @@ export default function Registration() {
       .ref('/Users/' + uid)
       .set({
         name: name,
+        email: email
       })
       .then(() => console.log('Data set.'));
   };

@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-export default function Button() {
+export default function Button({addFriend, data}) {
+  
   return (
     <View style={styles.button}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => addFriend(data)}>
         <Text style={styles.enter}>Отправить приглашение</Text>
       </TouchableOpacity>
     </View>

@@ -37,20 +37,20 @@ export default function Friends({navigation}: {navigation: any}) {
   const data = useSelector((state: RootState) => state.friends.friends);
   const [friendsList, setFriendsList] = useState([]);
 
-function User() {
+async function User() {
   useEffect(() => {
     const onValueChange = database()
-      .ref('/Users/' + auth().currentUser?.uid + '/friends')
+      .ref('/Users/' + auth()?.currentUser?.uid + '/friends')
       .on('value', snapshot => {
         let newArr:friendType2[] = []
-        for (let key in snapshot.val())
+        for (let key in snapshot?.val())
         {
           newArr = [...newArr, snapshot.val()[key]]
         }
         setFriendsList(newArr);
       });
     // Stop listening for updates when no longer required
-    return () => database().ref('/Users/' + auth().currentUser?.uid + '/friends').off('value', onValueChange);
+    return () => database()?.ref('/Users/' + auth().currentUser?.uid + '/friends').off('value', onValueChange);
   }, [auth().currentUser?.uid]);
 }
 User();

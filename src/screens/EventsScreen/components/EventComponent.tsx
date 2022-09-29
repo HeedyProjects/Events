@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import CustomText from '../../../components/CustomText';
 import Event from '../../../../assets/SVG/Event.svg';
 import GreyBell from '../../../../assets/SVG/GreyBell.svg';
@@ -42,31 +43,35 @@ export const EVENT_DATA = [
     status: false,
   },
 ];
-export default function EventComponent({item}: any) {
-  return (
-    <View style={styles.eventItemWrapper}>
-      <View style={styles.upperwrapper}>
-        <View style={styles.leftWrapper}>
-          <Event />
 
-          <CustomText style={styles.iventText} textType="SFProTextRegular">
-            {item.title}
+const EventComponent = ({item}) => {
+  // const navigation = useNavigation();
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate('AddNewEventScreen')}>
+      <View style={styles.eventItemWrapper}>
+        <View style={styles.upperwrapper}>
+          <View style={styles.leftWrapper}>
+            <Event />
+
+            <CustomText style={styles.iventText} textType="SFProTextRegular">
+              {item.title}
+            </CustomText>
+          </View>
+
+          {item.status ? <RingingBell /> : <GreyBell />}
+        </View>
+        <View style={styles.dateWrapper}>
+          <CustomText textType="SFProTextRegular" style={styles.date}>
+            {item.date}
+          </CustomText>
+          <CustomText textType="SFProTextRegular" style={styles.date}>
+            {item.time}
           </CustomText>
         </View>
-
-        {item.status ? <RingingBell /> : <GreyBell />}
       </View>
-      <View style={styles.dateWrapper}>
-        <CustomText textType="SFProTextRegular" style={styles.date}>
-          {item.date}
-        </CustomText>
-        <CustomText textType="SFProTextRegular" style={styles.date}>
-          {item.time}
-        </CustomText>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   date: {
@@ -107,3 +112,5 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 });
+
+export default EventComponent;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -8,7 +8,26 @@ import {
 } from 'react-native';
 import Camera from '../../../assets/SVG/Camera.svg';
 import ImagePicker from 'react-native-image-crop-picker';
+import {getStorage, ref, getDownloadURL} from '@react-native-firebase/storage';
+
 export default function AddPhoto() {
+  const [url, setUrl] = useState();
+
+  useEffect(() => {
+    const func = async () => {
+      const storage = getStorage();
+      const reference = ref(storage, '/1.png');
+      await getDownloadURL(reference).then(
+        (x: React.SetStateAction<undefined>) => {
+          setUrl(x);
+        },
+      );
+    };
+    if (url == undefined) {
+      func();
+    }
+  }, [url]);
+
   const [isModalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState('');
 
@@ -31,7 +50,7 @@ export default function AddPhoto() {
       {image ? (
         <ImageBackground
           source={{
-            uri: image,
+            uri: url,
           }}
           // eslint-disable-next-line react-native/no-inline-styles
           style={{

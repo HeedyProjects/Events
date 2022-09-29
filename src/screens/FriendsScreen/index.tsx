@@ -24,32 +24,36 @@ interface friendType {
     photo: string;
   };
 }
+interface friendType2 {
+  item: {
+    email: string;
+    name: string;
+  }
+}
+
 
 export default function Friends({navigation}: {navigation: any}) {
   const renderItem = ({item}: friendType) => <Item friend={item} />;
   const data = useSelector((state: RootState) => state.friends.friends);
-  const [arr, setArr] = useState([]);
-  async function userData() {
-    const dataBaseRef = await database().ref(
-      '/Users/' + auth().currentUser?.uid + '/friends',
-    );
-    // const dataBaseRef = await database().ref('/Users').orderByChild;
-    const data1 = await dataBaseRef.once('value');
-    const userList = data1.val();
-    let newArr = []
-    for (let key in userList)
-    {
-      newArr = [...newArr, userList[key]]
-      setArr(newArr)
-    }
-    
-    return console.log('eeeeeeee', arr);
-  }
+  const [friendsList, setFriendsList] = useState([]);
 
-
+function User() {
   useEffect(() => {
-    userData();
-  }, []);
+    const onValueChange = database()
+      .ref('/Users/' + auth().currentUser?.uid + '/friends')
+      .on('value', snapshot => {
+        let newArr:friendType2[] = []
+        for (let key in snapshot.val())
+        {
+          newArr = [...newArr, snapshot.val()[key]]
+        }
+        setFriendsList(newArr);
+      });
+    // Stop listening for updates when no longer required
+    return () => database().ref('/Users/' + auth().currentUser?.uid + '/friends').off('value', onValueChange);
+  }, [auth().currentUser?.uid]);
+}
+User();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -66,14 +70,10 @@ export default function Friends({navigation}: {navigation: any}) {
           marginBottom={24}
           borderWidth={0}
         />
-
-        <NewRequestHeader />
-
-        <NewRequestItem />
       </View>
       <View style={styles.list}>
         <FlatList
-          data={arr}
+          data={friendsList}
           renderItem={renderItem}
           nestedScrollEnabled={true}
           showsHorizontalScrollIndicator={false}

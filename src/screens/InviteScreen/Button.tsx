@@ -1,11 +1,13 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function Button({addFriend, data}) {
-  
+  const navigation = useNavigation();
   return (
     <View style={styles.button}>
-      <TouchableOpacity onPress={() => addFriend(data)}>
+      <TouchableOpacity onPress={() => {addFriend(data); navigation.goBack();}}>
         <Text style={styles.enter}>Отправить приглашение</Text>
       </TouchableOpacity>
     </View>

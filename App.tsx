@@ -15,7 +15,7 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   // Handle user state changes
-  function onAuthStateChanged(user) {
+  function onAuthStateChanged(user:any) {
     setUser(user);
     if (initializing) setInitializing(false);
   }

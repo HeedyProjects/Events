@@ -1,46 +1,65 @@
 import React, {useState} from 'react';
-import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Image, StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import Add from '../../../assets/SVG/Add.svg';
 import ImagePicker from 'react-native-image-crop-picker';
 import storage from '@react-native-firebase/storage';
-
+//добавляется только второе выбранное фото
 export default function AddPhoto() {
-  const reference = storage().ref(
-    'gs://events-9ecb5.appspot.com/UserPhotos/1.jpeg',
-  );
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [image, setImage] = useState('');
+  const [defaultPhoto, setDefaultPhoto] = useState('');
+  const [path, setPath] = useState<string | undefined>('');
+  const [filename, setFilename] = useState<string | undefined>('');
 
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
+  const setDefault = async () => {
+    const url =  await storage().ref('UserPhotos/default.png').getDownloadURL();
+    setDefaultPhoto(url);
+  }
+  
+  setDefault();
+
   // ------galery access-------
-  const choosePhotoFromLibrary = () => {
+  const choosePhotoFromLibrary = async () => {
     ImagePicker.openPicker({
       width: 300,
       height: 300,
       cropping: true,
     })
-      .then(image => setImage(image.path))
-      .then(() => setModalVisible(false));
-
-    console.log('image', image);
+      .then(image => {
+        const uri = image.sourceURL;
+        const finalUri = Platform.OS === 'ios' ? uri?.replace('file://', '') : uri;
+        setPath(finalUri);
+        const finalImage = image.filename;
+        setFilename(finalImage);
+        //console.log('image', image.path, image.filename, image.sourceURL);
+      })
+      // .then(() => setModalVisible(false));
   };
+  console.log('image', path, filename);
+
+  const reference = filename === '' ? null : storage().ref(`UserPhotos/${filename}`);
+  
   return (
     <View style={styles.photo}>
       <TouchableOpacity
         // eslint-disable-next-line react-native/no-inline-styles
         style={{position: 'absolute', zIndex: 1, right: 110, top: -15}}
-        onPress={async () => {
+        onPress={ async() => {
+          //toggleModal();
+          choosePhotoFromLibrary();
           // path to existing file on filesystem
-          const pathToFile = `${utils.FilePath.PICTURES_DIRECTORY}/gs://events-9ecb5.appspot.com/UserPhotos/1.jpeg'`;
-          // uploads file
-          await reference.putFile(pathToFile);
+
+            const pathToFile = `${path}`;
+
+            // uploads file
+            console.log('ffffffff', pathToFile);
+            
+            await reference?.putFile(pathToFile);
+
+            
         }}>
         <Add style={styles.camera} />
       </TouchableOpacity>
       <Image
-        source={require('../../../assets/profileIcons/girl.jpeg')}
+        source={{uri : path === ''? defaultPhoto: path}}
         style={styles.image}
       />
     </View>

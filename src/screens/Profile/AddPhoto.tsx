@@ -17,42 +17,45 @@ export default function AddPhoto() {
   setDefault();
 
   // ------galery access-------
-  const choosePhotoFromLibrary = async () => {
+  const choosePhotoFromLibrary = () => {
     ImagePicker.openPicker({
       width: 300,
       height: 300,
       cropping: true,
     })
-      .then(image => {
+      .then(async image => {
         const uri = image.sourceURL;
         const finalUri = Platform.OS === 'ios' ? uri?.replace('file://', '') : uri;
-        setPath(finalUri);
         const finalImage = image.filename;
+        setPath(finalUri);
         setFilename(finalImage);
         //console.log('image', image.path, image.filename, image.sourceURL);
+        console.log('ffffffff', pathToFile);
+        const reference = filename === '' ? null : storage().ref(`UserPhotos/${filename}`);
+        await reference?.putFile(pathToFile);
+        // .then(() => setModalVisible(false));
+        console.log('aaaaaaa', pathToFile);
       })
-      // .then(() => setModalVisible(false));
+      const pathToFile = `${path}`;
+
+      // uploads file
+
   };
   console.log('image', path, filename);
 
-  const reference = filename === '' ? null : storage().ref(`UserPhotos/${filename}`);
+  
   
   return (
     <View style={styles.photo}>
       <TouchableOpacity
         // eslint-disable-next-line react-native/no-inline-styles
         style={{position: 'absolute', zIndex: 1, right: 110, top: -15}}
-        onPress={ async() => {
+        onPress={ () => {
           //toggleModal();
           choosePhotoFromLibrary();
           // path to existing file on filesystem
 
-            const pathToFile = `${path}`;
 
-            // uploads file
-            console.log('ffffffff', pathToFile);
-            
-            await reference?.putFile(pathToFile);
 
             
         }}>
